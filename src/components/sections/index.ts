@@ -1,0 +1,5 @@
+export { HeroSection } from './hero-section'
+export { AmbientesShowcase } from './ambientes-showcase'
+export { StatsSection } from './stats-section'
+export { AboutSection } from './about-section'
+export { CompanySection } from './company-section'

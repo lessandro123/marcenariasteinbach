@@ -1,0 +1,272 @@
+'use client'
+
+import * as React from "react"
+import { motion } from "framer-motion"
+import {
+  MapPin,
+  Award,
+  Leaf,
+  Ruler,
+  Users,
+  CheckCircle2,
+  Home,
+  Building2,
+  ArrowRight
+} from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Container } from "@/components/ui/container"
+import { Section } from "@/components/ui/section"
+import { GoogleMapEmbed } from "@/components/common/GoogleMapEmbed"
+
+const diferenciais = [
+  {
+    icon: Ruler,
+    title: 'Projetos 3D',
+    description: 'Visualização realística antes da execução com tecnologia de ponta'
+  },
+  {
+    icon: Award,
+    title: 'Orçamento Grátis',
+    description: 'Consulta sem compromisso para seu projeto personalizado'
+  },
+  {
+    icon: CheckCircle2,
+    title: 'Entrega Garantida',
+    description: '100% de confiança no prazo e qualidade acordados'
+  },
+  {
+    icon: Leaf,
+    title: 'Certificação FSC',
+    description: 'Madeira de reflorestamento com responsabilidade ambiental'
+  }
+]
+
+const ambientes = [
+  { nome: 'Cozinhas', projetos: 126, icon: Home },
+  { nome: 'Áreas de Serviço', projetos: 84, icon: Building2 },
+  { nome: 'Home Office', projetos: 48, icon: Building2 },
+  { nome: 'Banheiros', projetos: 32, icon: Home },
+  { nome: 'Closets', projetos: 30, icon: Home },
+  { nome: 'Home Theater', projetos: 28, icon: Building2 },
+  { nome: 'Dormitórios', projetos: 20, icon: Home },
+  { nome: 'Salas de Jantar', projetos: 14, icon: Home }
+]
+
+export function CompanySection() {
+  return (
+    <Section id="sobre-nos" className="bg-white" spacing="xl">
+      <Container>
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 font-['Playfair_Display']">
+            Sobre
+            <span className="text-red-600"> Nós</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Somos uma marcenaria familiar de Palhoça/SC, especializada em móveis planejados de luxo
+            que transformam ambientes com elegância e funcionalidade.
+          </p>
+        </motion.div>
+
+        {/* Company Info Grid */}
+        <div className="grid lg:grid-cols-2 gap-12 mb-16">
+          {/* Quem Somos */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="relative overflow-hidden rounded-2xl shadow-lg border border-gray-200"
+          >
+            {/* Background Image */}
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: 'url(/images/sobre-nos-marcenaria.jpg)',
+              }}
+            />
+
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-black/75 via-black/70 to-black/60" />
+
+            {/* Content */}
+            <div className="relative z-10 p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <Users className="w-8 h-8 text-white" />
+                <h3 className="text-2xl font-bold text-white">Quem Somos</h3>
+              </div>
+              <div className="space-y-4 text-gray-100 leading-relaxed">
+                <p>
+                  A <strong className="text-white font-bold">Marcenaria Steinbach</strong> é uma empresa familiar
+                  com <strong className="text-red-600 font-bold">71 anos de história</strong>, passando por três gerações
+                  que mantêm viva a tradição de criar móveis únicos e de alta qualidade.
+                </p>
+                <p>
+                  Combinamos técnicas artesanais tradicionais com tecnologia de ponta, oferecendo
+                  projetos 3D que permitem visualizar cada detalhe antes da execução.
+                </p>
+                <p>
+                  Nossa equipe especializada atende cada cliente de forma personalizada, garantindo
+                  que cada projeto reflita o estilo e as necessidades específicas de cada ambiente.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Localização e Atuação */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-br from-red-50 to-white p-8 rounded-2xl shadow-lg border border-red-100"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <MapPin className="w-8 h-8 text-red-600" />
+              <h3 className="text-2xl font-bold text-gray-900">Nossa Atuação</h3>
+            </div>
+            <div className="space-y-6">
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-2">Localização</h4>
+                <p className="text-gray-600">
+                  Palhoça, Santa Catarina<br />
+                  Atendendo toda a <strong>Grande Florianópolis</strong>
+                </p>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-3">Ambientes que Transformamos</h4>
+                <div className="grid grid-cols-2 gap-2">
+                  {ambientes.map((ambiente) => (
+                    <div
+                      key={ambiente.nome}
+                      className="flex items-center gap-2 text-sm text-gray-600"
+                    >
+                      <CheckCircle2 className="w-4 h-4 text-red-600 flex-shrink-0" />
+                      <span>{ambiente.nome}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-red-100">
+                <p className="text-sm text-gray-500 mb-4">
+                  Mais de <strong className="text-red-600">650 projetos</strong> entregues com excelência
+                </p>
+              </div>
+
+              {/* Mapa do Google */}
+              <div className="mt-6">
+                <h4 className="font-semibold text-gray-900 mb-3">Nossa Localização</h4>
+                <GoogleMapEmbed className="h-64 rounded-lg overflow-hidden shadow-md" />
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Diferenciais */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <h3 className="text-3xl font-bold text-gray-900 text-center mb-12 font-['Playfair_Display']">
+            Nossos Diferenciais
+          </h3>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {diferenciais.map((item, index) => {
+              const Icon = item.icon
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl hover:scale-105 transition-all duration-300 group"
+                >
+                  <div className="w-12 h-12 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <Icon className="w-6 h-6 text-white" />
+                  </div>
+                  <h4 className="text-lg font-bold text-gray-900 mb-2">
+                    {item.title}
+                  </h4>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    {item.description}
+                  </p>
+                </motion.div>
+              )
+            })}
+          </div>
+        </motion.div>
+
+        {/* Sustentabilidade Destacada */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-gradient-to-br from-green-50 to-white rounded-2xl p-8 sm:p-12 shadow-lg border border-green-100 mb-16"
+        >
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="flex-shrink-0">
+              <div className="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center">
+                <Leaf className="w-10 h-10 text-white" />
+              </div>
+            </div>
+            <div className="flex-1 text-center md:text-left">
+              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+                Compromisso com a Sustentabilidade
+              </h3>
+              <p className="text-lg text-gray-600 mb-4">
+                Trabalhamos exclusivamente com <strong className="text-green-600">madeira certificada FSC</strong>,
+                garantindo que cada móvel é produzido com responsabilidade ambiental e madeira de reflorestamento.
+              </p>
+              <p className="text-sm text-gray-500">
+                Certificação FSC - Forest Stewardship Council
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* CTA Final */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 sm:p-12 shadow-lg"
+        >
+          <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 font-['Playfair_Display']">
+            Pronto para Transformar Seu Espaço?
+          </h3>
+          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+            Entre em contato conosco e descubra como podemos criar o ambiente dos seus sonhos
+            com a qualidade e tradição Steinbach.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              variant="default"
+              size="lg"
+              className="group shadow-xl hover:scale-105 transition-all duration-300"
+            >
+              Solicitar Orçamento Grátis
+              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="group shadow-md hover:shadow-lg transition-all duration-300"
+            >
+              Ver Nossos Projetos
+              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </div>
+        </motion.div>
+      </Container>
+    </Section>
+  )
+}
