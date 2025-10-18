@@ -17,7 +17,9 @@ export function Header() {
       {/* Mobile/Desktop menu button - Left Corner */}
       <button
         type="button"
-        className="absolute left-4 top-1/2 -translate-y-1/2 p-3 text-gray-700 hover:text-red-600 hover:bg-gray-100 rounded-md transition-colors z-10"
+        className={`absolute left-4 top-1/2 -translate-y-1/2 p-3 text-gray-700 rounded-md transition-colors z-10 ${
+          mobileMenuOpen ? 'hover:text-red-600' : ''
+        }`}
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
       >
         <span className="sr-only">Abrir menu principal</span>

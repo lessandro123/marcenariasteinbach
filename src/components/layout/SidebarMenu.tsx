@@ -48,12 +48,15 @@ export function SidebarMenu({ isOpen, onClose }: SidebarMenuProps) {
                   href={item.href}
                   onClick={onClose}
                   className={cn(
-                    "flex items-center px-3 py-3 text-gray-700 hover:text-red-600 hover:bg-gray-50",
-                    "rounded-md text-base font-medium transition-colors group"
+                    "relative flex items-center px-3 py-3 text-gray-700 hover:text-red-600 hover:bg-gray-50",
+                    "rounded-md text-base font-medium transition-colors group overflow-hidden"
                   )}
                 >
                   <IconComponent className="h-5 w-5 mr-3 text-gray-500 group-hover:text-red-600 transition-colors" />
                   {item.name}
+
+                  {/* Linha vermelha animada */}
+                  <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-red-600 transition-all duration-300 ease-out group-hover:w-full" />
                 </a>
               )
             })}
