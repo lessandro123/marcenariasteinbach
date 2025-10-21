@@ -32,7 +32,7 @@ export function SidebarMenu({ isOpen, onClose }: SidebarMenuProps) {
       {/* Sidebar Menu */}
       <div
         className={cn(
-          "fixed top-[81px] sm:top-[97px] lg:top-[113px] left-0 bg-white shadow-xl z-50 transition-transform duration-300 ease-in-out",
+          "fixed top-[58px] sm:top-[74px] lg:top-[90px] left-0 bg-white shadow-xl z-50 transition-transform duration-300 ease-in-out",
           "w-[240px] sm:w-[260px] lg:w-[280px] flex flex-col",
           isOpen ? "translate-x-0" : "-translate-x-full"
         )}

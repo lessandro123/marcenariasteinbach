@@ -288,9 +288,9 @@ export function AmbientesShowcase() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4"
+          className="mt-16 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4"
         >
-          {ambientes.slice(0, 4).map((ambiente, index) => (
+          {ambientes.map((ambiente, index) => (
             <Card
               key={ambiente.id}
               className={cn(

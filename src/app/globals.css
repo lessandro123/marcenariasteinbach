@@ -17,6 +17,12 @@
   /* Cores do WhatsApp */
   --whatsapp-green: #25D366;
   --whatsapp-green-dark: #128C7E;
+
+  /* Dimensões responsivas do header */
+  --header-height-mobile: 3.5rem;
+  --header-height-tablet: 4.5rem;
+  --header-height-desktop: 5.5rem;
+  --touch-target-min: 48px;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);

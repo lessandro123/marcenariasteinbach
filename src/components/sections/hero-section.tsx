@@ -11,7 +11,7 @@ import { Section } from "@/components/ui/section"
 export function HeroSection() {
   return (
     <Section
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-[calc(100vh-56px)] sm:min-h-[calc(100vh-72px)] lg:min-h-screen flex items-center justify-center overflow-hidden"
       spacing="xl"
     >
       {/* Background Image */}
@@ -20,7 +20,7 @@ export function HeroSection() {
           src="/hero-living-room.jpg"
           alt="Sala de estar luxuosa com móveis sob medida Steinbach"
           fill
-          className="object-cover object-[center_15%] scale-110"
+          className="object-cover object-center sm:object-[center_15%] scale-100 sm:scale-105 lg:scale-110"
           quality={85}
           priority
         />
@@ -30,7 +30,7 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/50"></div>
 
       <Container className="relative z-10">
-        <div className="text-center space-y-8">
+        <div className="text-center space-y-6 sm:space-y-8 px-2 sm:px-4">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -49,24 +49,24 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-4"
+            className="space-y-3 sm:space-y-4"
           >
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold">
               <span className="text-white font-['Playfair_Display']">
                 STEINBACH
               </span>
-              <div className="text-2xl sm:text-3xl lg:text-4xl text-[var(--red-primary)] font-light font-['Playfair_Display'] -mt-2">
+              <div className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl text-[var(--red-primary)] font-light font-['Playfair_Display'] -mt-1 sm:-mt-2">
                 Marcenaria Premium
               </div>
             </h1>
-            
+
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl sm:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed"
+              className="text-lg sm:text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0"
             >
-              Transformamos sonhos em móveis únicos. 
+              Transformamos sonhos em móveis únicos.
               <span className="text-[var(--red-primary)] font-medium">
                 &nbsp;Tradição familiar desde 1954.
               </span>
