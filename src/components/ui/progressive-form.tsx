@@ -140,7 +140,6 @@ export function ProgressiveForm({ onSubmit, isSubmitting = false }: ProgressiveF
                   errors.name ? 'border-red-500' : 'border-gray-300'
                 )}
                 {...register('name')}
-                autoFocus
               />
               {errors.name && (
                 <p className="text-sm text-red-500">{errors.name.message}</p>
