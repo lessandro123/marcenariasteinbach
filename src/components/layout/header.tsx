@@ -13,7 +13,7 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
+    <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-t-[4px] border-b-[3px] border-red-primary z-50">
       {/* Mobile/Desktop menu button - Left Corner */}
       <button
         type="button"

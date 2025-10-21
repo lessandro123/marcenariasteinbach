@@ -5,7 +5,7 @@ import { Section } from "@/components/ui/section"
 
 export function Footer() {
   return (
-    <Section variant="dark" spacing="lg" className="border-t border-gray-800">
+    <Section variant="dark" spacing="lg" className="border-t-[4px] border-red-primary">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Empresa */}

@@ -32,14 +32,14 @@ export function SidebarMenu({ isOpen, onClose }: SidebarMenuProps) {
       {/* Sidebar Menu */}
       <div
         className={cn(
-          "fixed top-[81px] sm:top-[97px] lg:top-[113px] left-0 h-[calc(100vh-81px)] sm:h-[calc(100vh-97px)] lg:h-[calc(100vh-113px)] bg-white shadow-xl z-50 transition-transform duration-300 ease-in-out",
-          "w-[280px] sm:w-[320px] lg:w-[360px] flex flex-col",
+          "fixed top-[81px] sm:top-[97px] lg:top-[113px] left-0 bg-white shadow-xl z-50 transition-transform duration-300 ease-in-out",
+          "w-[240px] sm:w-[260px] lg:w-[280px] flex flex-col",
           isOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
         {/* Navigation Items */}
-        <nav className="flex-1 px-4 py-4 bg-white overflow-y-auto">
-          <div className="space-y-2">
+        <nav className="px-4 py-3 bg-white overflow-y-auto">
+          <div className="space-y-1">
             {navigation.map((item) => {
               const IconComponent = item.icon
               return (
@@ -48,7 +48,7 @@ export function SidebarMenu({ isOpen, onClose }: SidebarMenuProps) {
                   href={item.href}
                   onClick={onClose}
                   className={cn(
-                    "relative flex items-center px-3 py-3 text-gray-700 hover:text-red-600 hover:bg-gray-50",
+                    "relative flex items-center px-3 py-2.5 text-gray-700 hover:text-red-600 hover:bg-gray-50",
                     "rounded-md text-base font-medium transition-colors group overflow-hidden"
                   )}
                 >

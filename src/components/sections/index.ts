@@ -1,5 +1,7 @@
 export { HeroSection } from './hero-section'
 export { AmbientesShowcase } from './ambientes-showcase'
+export { ArProjectsSection } from './ar-projects-section'
 export { StatsSection } from './stats-section'
 export { AboutSection } from './about-section'
 export { CompanySection } from './company-section'
+export { ContactFormSection } from './contact-form-section'
