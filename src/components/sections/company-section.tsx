@@ -1,6 +1,7 @@
 'use client'
 
 import * as React from "react"
+import Image from "next/image"
 import { motion } from "framer-motion"
 import {
   MapPin,
@@ -11,9 +12,10 @@ import {
   CheckCircle2,
   Home,
   Building2,
-  ArrowRight
+  ArrowRight,
+  Store
 } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Button, buttonVariants } from "@/components/ui/button"
 import { Container } from "@/components/ui/container"
 import { Section } from "@/components/ui/section"
 import { GoogleMapEmbed } from "@/components/common/GoogleMapEmbed"
@@ -166,6 +168,107 @@ export function CompanySection() {
             </div>
           </motion.div>
         </div>
+
+        {/* Showcase do Showroom */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
+        >
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
+            {/* Imagem principal */}
+            <div className="relative aspect-[21/9] sm:aspect-[16/7] lg:aspect-[21/9]">
+              <Image
+                src="/images/showroom-fachada.png"
+                alt="Fachada da Marcenaria Steinbach em Palhoça/SC"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1400px"
+                priority
+              />
+
+              {/* Overlay gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent"></div>
+            </div>
+
+            {/* Content overlay */}
+            <div className="absolute inset-0 flex items-end">
+              <div className="w-full p-6 sm:p-8 lg:p-12">
+                <Container>
+                  <div className="max-w-3xl">
+                    {/* Badge */}
+                    <motion.div
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.3 }}
+                      className="inline-flex items-center gap-2 bg-white/95 backdrop-blur-sm rounded-full px-4 py-2 mb-4 shadow-lg"
+                    >
+                      <Store className="w-5 h-5 text-red-600" />
+                      <span className="text-sm font-semibold text-gray-900">Nosso Showroom</span>
+                    </motion.div>
+
+                    {/* Title */}
+                    <motion.h3
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.4 }}
+                      className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 font-['Playfair_Display']"
+                    >
+                      Visite Nosso Espaço em Palhoça
+                    </motion.h3>
+
+                    {/* Description */}
+                    <motion.p
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.5 }}
+                      className="text-base sm:text-lg text-gray-100 mb-6 max-w-2xl"
+                    >
+                      Conheça de perto nossos projetos, materiais e acabamentos.
+                      Nossa equipe está pronta para transformar suas ideias em realidade.
+                    </motion.p>
+
+                    {/* CTA Button */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.6 }}
+                      className="flex flex-wrap gap-4"
+                    >
+                      <a
+                        href="https://www.google.com/maps?ll=-27.62977,-48.661946&z=18&t=m&hl=pt-PT&gl=US&mapclient=embed&cid=9840515860392962567"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={buttonVariants({ variant: "default", size: "lg" }) + " bg-[var(--red-primary)] hover:bg-[var(--red-hover)] text-white shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"}
+                      >
+                        <MapPin className="w-4 h-4 mr-2" />
+                        Ver Localização
+                      </a>
+                      <Button
+                        variant="outline"
+                        size="lg"
+                        className="bg-white/95 backdrop-blur-sm border-white text-gray-900 hover:bg-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                      >
+                        Agendar Visita
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </motion.div>
+                  </div>
+                </Container>
+              </div>
+            </div>
+
+            {/* Decorative corner accent */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[var(--gold-primary)]/30 to-transparent"></div>
+          </div>
+        </motion.div>
 
         {/* Diferenciais */}
         <motion.div

@@ -287,25 +287,25 @@ export function AmbientesShowcase() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="mt-16 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4"
+          className="mt-16 grid grid-cols-4 sm:grid-cols-4 md:grid-cols-8 gap-2 sm:gap-3 md:gap-4"
         >
           {ambientes.map((ambiente, index) => (
             <Card
               key={ambiente.id}
               className={cn(
-                "p-6 cursor-pointer transition-all duration-300 hover:scale-105",
+                "p-2 sm:p-4 md:p-6 cursor-pointer transition-all duration-300 hover:scale-105",
                 current === index ? "ring-2 ring-red-600 bg-red-50" : ""
               )}
               onClick={() => goToSlide(index)}
             >
               <div className={cn(
-                "w-12 h-12 rounded-lg mb-4 bg-gradient-to-br flex items-center justify-center",
+                "w-10 h-10 sm:w-12 sm:h-12 rounded-lg mb-0 sm:mb-4 bg-gradient-to-br flex items-center justify-center",
                 ambiente.color
               )}>
-                <ambiente.icon className="w-7 h-7 text-white" />
+                <ambiente.icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
               </div>
-              <h4 className="font-semibold text-gray-900 mb-2">{ambiente.title}</h4>
-              <p className="text-sm text-gray-600">{ambiente.description}</p>
+              <h4 className="hidden sm:block font-semibold text-gray-900 mb-2">{ambiente.title}</h4>
+              <p className="hidden sm:block text-sm text-gray-600">{ambiente.description}</p>
             </Card>
           ))}
         </motion.div>

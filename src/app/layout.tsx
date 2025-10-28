@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import { MenuProvider } from "@/contexts/MenuContext";
+import { SidebarMenu } from "@/components/layout/SidebarMenu";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -139,7 +141,10 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
-        {children}
+        <MenuProvider>
+          <SidebarMenu />
+          {children}
+        </MenuProvider>
       </body>
     </html>
   );

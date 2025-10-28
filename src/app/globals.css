@@ -62,6 +62,7 @@
   --color-foreground: var(--foreground);
 
   /* Cores customizadas */
+  --color-red-primary: var(--red-primary);
   --color-red-500: var(--red-primary);
   --color-red-600: var(--red-primary);
   --color-red-700: var(--red-hover);

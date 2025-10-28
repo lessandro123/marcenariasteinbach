@@ -1,26 +1,23 @@
 'use client'
 
 import * as React from "react"
-import { useState } from "react"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Container } from "@/components/ui/container"
-import { SidebarMenu } from "./SidebarMenu"
 import { WhatsAppIcon } from "@/components/icons"
+import { useMenu } from "@/contexts/MenuContext"
 
 export function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { mobileMenuOpen, toggleMenu } = useMenu()
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b-2 border-red-primary z-50 overflow-x-hidden">
       {/* Mobile/Desktop menu button - Left Corner */}
       <button
         type="button"
-        className={`absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 p-2 sm:p-3 text-gray-700 rounded-md transition-colors z-10 min-h-[48px] min-w-[48px] flex items-center justify-center ${
-          mobileMenuOpen ? 'hover:text-red-600' : ''
-        }`}
-        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 p-2 sm:p-3 text-gray-700 hover:text-red-600 rounded-md transition-colors duration-300 z-10 min-h-[48px] min-w-[48px] flex items-center justify-center"
+        onClick={toggleMenu}
       >
         <span className="sr-only">Abrir menu principal</span>
         {mobileMenuOpen ? (
@@ -59,12 +56,6 @@ export function Header() {
           </div>
         </div>
       </Container>
-
-      {/* Sidebar Menu */}
-      <SidebarMenu 
-        isOpen={mobileMenuOpen} 
-        onClose={() => setMobileMenuOpen(false)} 
-      />
     </header>
   )
 }

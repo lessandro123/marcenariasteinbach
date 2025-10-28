@@ -3,11 +3,7 @@
 import * as React from "react"
 import { Home, Layout, Users, Briefcase, Mail } from "lucide-react"
 import { cn } from "@/lib/utils"
-
-interface SidebarMenuProps {
-  isOpen: boolean
-  onClose: () => void
-}
+import { useMenu } from "@/contexts/MenuContext"
 
 const navigation = [
   { name: 'Início', href: '#inicio', icon: Home },
@@ -17,16 +13,18 @@ const navigation = [
   { name: 'Contato', href: '#contato', icon: Mail },
 ]
 
-export function SidebarMenu({ isOpen, onClose }: SidebarMenuProps) {
+export function SidebarMenu() {
+  const { mobileMenuOpen, setMobileMenuOpen } = useMenu()
+
   return (
     <>
       {/* Overlay/Backdrop */}
       <div
         className={cn(
           "fixed inset-0 bg-black/50 z-40 transition-opacity duration-300",
-          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
-        onClick={onClose}
+        onClick={() => setMobileMenuOpen(false)}
       />
 
       {/* Sidebar Menu */}
@@ -34,7 +32,7 @@ export function SidebarMenu({ isOpen, onClose }: SidebarMenuProps) {
         className={cn(
           "fixed top-[58px] sm:top-[74px] lg:top-[90px] left-0 bg-white shadow-xl z-50 transition-transform duration-300 ease-in-out",
           "w-[240px] sm:w-[260px] lg:w-[280px] flex flex-col",
-          isOpen ? "translate-x-0" : "-translate-x-full"
+          mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
         {/* Navigation Items */}
@@ -46,7 +44,7 @@ export function SidebarMenu({ isOpen, onClose }: SidebarMenuProps) {
                 <a
                   key={item.name}
                   href={item.href}
-                  onClick={onClose}
+                  onClick={() => setMobileMenuOpen(false)}
                   className={cn(
                     "relative flex items-center px-3 py-2.5 text-gray-700 hover:text-red-600 hover:bg-gray-50",
                     "rounded-md text-base font-medium transition-colors group overflow-hidden"
