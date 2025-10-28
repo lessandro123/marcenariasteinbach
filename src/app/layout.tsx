@@ -131,9 +131,9 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="pt-BR" className="scroll-smooth">
+    <html lang="pt-BR" className="scroll-smooth overflow-x-hidden">
       <body
-        className={`${inter.variable} ${playfairDisplay.variable} antialiased`}
+        className={`${inter.variable} ${playfairDisplay.variable} antialiased overflow-x-hidden`}
       >
         <script
           type="application/ld+json"

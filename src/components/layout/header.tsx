@@ -13,7 +13,7 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b-2 border-red-primary z-50">
+    <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b-2 border-red-primary z-50 overflow-x-hidden">
       {/* Mobile/Desktop menu button - Left Corner */}
       <button
         type="button"
@@ -43,7 +43,7 @@ export function Header() {
       </a>
 
       <Container>
-        <div className="flex items-center justify-center h-14 sm:h-18 lg:h-22">
+        <div className="flex items-center justify-center h-14 sm:h-16 lg:h-20">
           {/* Logo - Center */}
           <div className="flex-shrink-0">
             <a href="#inicio" className="block">

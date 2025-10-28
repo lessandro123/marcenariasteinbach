@@ -14,10 +14,22 @@ export function HeroSection() {
       className="relative min-h-[calc(100vh-56px)] sm:min-h-[calc(100vh-72px)] lg:min-h-screen flex items-center justify-center overflow-hidden"
       spacing="xl"
     >
-      {/* Background Image */}
-      <div className="absolute inset-0 bg-[#8b4513]">
+      {/* Background Image - Mobile */}
+      <div className="absolute inset-0 bg-[#8b4513] sm:hidden">
         <Image
-          src="/hero-living-room.jpg"
+          src="/hero-mobile.jpg"
+          alt="Sala de estar luxuosa com móveis sob medida Steinbach"
+          fill
+          className="object-cover object-center"
+          quality={85}
+          priority
+        />
+      </div>
+
+      {/* Background Image - Desktop */}
+      <div className="absolute inset-0 bg-[#8b4513] hidden sm:block">
+        <Image
+          src="/hero-desktop.jpg"
           alt="Sala de estar luxuosa com móveis sob medida Steinbach"
           fill
           className="object-cover object-center sm:object-[center_15%] scale-100 sm:scale-105 lg:scale-110"

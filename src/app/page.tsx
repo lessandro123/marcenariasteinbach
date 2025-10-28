@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="pt-14 sm:pt-18 lg:pt-22">
+      <main className="pt-14 sm:pt-16 lg:pt-20">
         <HeroSection />
         <AmbientesShowcase />
         <ArProjectsSection />
