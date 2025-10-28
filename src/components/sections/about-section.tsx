@@ -213,8 +213,8 @@ export function AboutSection() {
                 className="mt-8 text-center"
               >
                 <p className="text-gray-700 italic text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-                  "Com dedicação e amor pelo ofício, iniciaram uma jornada que atravessaria gerações,
-                  construindo não apenas móveis, mas histórias de família."
+                  &ldquo;Com dedicação e amor pelo ofício, iniciaram uma jornada que atravessaria gerações,
+                  construindo não apenas móveis, mas histórias de família.&rdquo;
                 </p>
               </motion.div>
             </div>

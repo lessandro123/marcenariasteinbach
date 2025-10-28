@@ -21,7 +21,6 @@ export function ProgressiveForm({ onSubmit, isSubmitting = false }: ProgressiveF
   const {
     register,
     handleSubmit,
-    watch,
     trigger,
     formState: { errors },
   } = useForm<ContactFormData>({
