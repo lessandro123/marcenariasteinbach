@@ -47,7 +47,7 @@ const itemVariants = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: 'easeOut',
+      ease: [0, 0, 0.2, 1],
     },
   },
 };
@@ -87,7 +87,7 @@ export function EcoPartnershipsSection() {
           viewport={{ once: true, margin: '-100px' }}
           className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10"
         >
-          {partnerships.map((partnership, index) => {
+          {partnerships.map((partnership) => {
             const Icon = partnership.icon;
             return (
               <motion.div

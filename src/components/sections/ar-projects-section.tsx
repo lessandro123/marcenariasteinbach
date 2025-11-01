@@ -98,7 +98,7 @@ export function ArProjectsSection() {
                     transition={{
                       duration: 3,
                       repeat: Infinity,
-                      ease: "easeInOut"
+                      ease: [0.42, 0, 0.58, 1]
                     }}
                     className="absolute -top-4 -right-4 bg-white rounded-2xl p-3 shadow-xl"
                   >
@@ -113,7 +113,7 @@ export function ArProjectsSection() {
                     transition={{
                       duration: 4,
                       repeat: Infinity,
-                      ease: "easeInOut",
+                      ease: [0.42, 0, 0.58, 1],
                       delay: 0.5
                     }}
                     className="absolute -bottom-4 -left-4 bg-white rounded-2xl p-4 shadow-xl"
@@ -129,7 +129,7 @@ export function ArProjectsSection() {
                     transition={{
                       duration: 5,
                       repeat: Infinity,
-                      ease: "easeInOut",
+                      ease: [0.42, 0, 0.58, 1],
                       delay: 1
                     }}
                     className="absolute top-1/2 -right-8 bg-white rounded-2xl p-3 shadow-xl"

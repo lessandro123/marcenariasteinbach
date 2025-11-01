@@ -41,7 +41,7 @@ const itemVariants = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: 'easeOut',
+      ease: [0, 0, 0.2, 1],
     },
   },
 };
@@ -73,7 +73,7 @@ export function ValuesSection() {
           viewport={{ once: true, margin: '-100px' }}
           className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12"
         >
-          {values.map((value, index) => {
+          {values.map((value) => {
             const Icon = value.icon;
             return (
               <motion.div

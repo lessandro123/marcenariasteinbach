@@ -93,7 +93,7 @@ export function ProgressiveForm({ onSubmit, isSubmitting = false }: ProgressiveF
             className="h-full bg-gradient-to-r from-[var(--red-primary)] to-[var(--red-hover)]"
             initial={{ width: 0 }}
             animate={{ width: `${progressPercentage}%` }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
+            transition={{ duration: 0.5, ease: [0, 0, 0.2, 1] }}
           />
         </div>
 
