@@ -21,8 +21,8 @@ export const metadata: Metadata = {
     default: "STEINBACH Marcenaria | Móveis Sob Medida Premium - 71 Anos de Tradição",
     template: "%s | STEINBACH Marcenaria"
   },
-  description: "Móveis sob medida premium em Blumenau. 71 anos de tradição familiar, desde 1954. Cozinhas, dormitórios, closets e ambientes completos. Orçamento grátis!",
-  keywords: ["marcenaria", "móveis sob medida", "Blumenau", "cozinha planejada", "closet", "dormitório", "móveis premium", "tradição familiar"],
+  description: "Móveis sob medida premium em Palhoça. 71 anos de tradição familiar, desde 1954. Cozinhas, dormitórios, closets e ambientes completos. Orçamento grátis!",
+  keywords: ["marcenaria", "móveis sob medida", "Palhoça", "cozinha planejada", "closet", "dormitório", "móveis premium", "tradição familiar"],
   authors: [{ name: "STEINBACH Marcenaria" }],
   creator: "STEINBACH Marcenaria",
   publisher: "STEINBACH Marcenaria",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "STEINBACH Marcenaria | Móveis Sob Medida Premium",
-    description: "71 anos criando móveis únicos em Blumenau. Tradição familiar, qualidade premium e design personalizado. Transforme seu ambiente!",
+    description: "71 anos criando móveis únicos em Palhoça. Tradição familiar, qualidade premium e design personalizado. Transforme seu ambiente!",
     url: '/',
     siteName: 'STEINBACH Marcenaria',
     locale: 'pt_BR',
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'STEINBACH Marcenaria | 71 Anos de Tradição',
-    description: 'Móveis sob medida premium em Blumenau. Qualidade e tradição desde 1954.',
+    description: 'Móveis sob medida premium em Palhoça. Qualidade e tradição desde 1954.',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -88,14 +88,14 @@ export default function RootLayout({
     "image": "https://steinbach-marcenaria.com.br/logo-marcenaria.jpg",
     "logo": "https://steinbach-marcenaria.com.br/logo-marcenaria-transparente.png",
     "url": "https://steinbach-marcenaria.com.br",
-    "telephone": "+55-47-99999-9999",
+    "telephone": "+55-48-99605-5656",
     "priceRange": "$$$$",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Palhoça",
+      "streetAddress": "R. Vítor Meireles, 11 - Jardim Eldorado",
       "addressLocality": "Palhoça",
       "addressRegion": "SC",
-      "postalCode": "",
+      "postalCode": "88133-370",
       "addressCountry": "BR"
     },
     "geo": {

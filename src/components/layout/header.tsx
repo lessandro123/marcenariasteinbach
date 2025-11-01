@@ -29,7 +29,7 @@ export function Header() {
 
       {/* CTA Button - Right Corner */}
       <a
-        href="https://wa.me/5547999999999"
+        href="https://wa.me/5548996055656"
         target="_blank"
         rel="noopener noreferrer"
         className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 z-10"

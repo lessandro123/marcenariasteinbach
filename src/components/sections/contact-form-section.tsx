@@ -50,8 +50,7 @@ export function ContactFormSection() {
 
   const handleWhatsAppFallback = (data: ContactFormData) => {
     // Número do WhatsApp da Marcenaria Steinbach
-    // TODO: Substituir pelo número real da empresa
-    const phoneNumber = '5547999999999'; // Formato: 55 + DDD + Número
+    const phoneNumber = '5548996055656'; // Formato: 55 + DDD + Número
 
     // Monta a mensagem para o WhatsApp
     const message = `Olá! Meu nome é ${data.name}.
@@ -186,11 +185,11 @@ Gostaria de mais informações sobre os móveis da Marcenaria Steinbach.`;
               Ou entre em contato diretamente pelo WhatsApp:{' '}
               <button
                 onClick={() =>
-                  window.open('https://wa.me/5547999999999', '_blank')
+                  window.open('https://wa.me/5548996055656', '_blank')
                 }
                 className="text-[var(--red-primary)] hover:underline font-medium"
               >
-                (47) 99999-9999
+                (48) 99605-5656
               </button>
             </p>
           </motion.div>

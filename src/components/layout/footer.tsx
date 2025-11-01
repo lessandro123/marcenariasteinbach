@@ -34,22 +34,22 @@ export function Footer() {
               <div className="flex items-start space-x-3">
                 <Phone className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
                 <div className="text-sm text-gray-300">
-                  <div>(47) 3055-3500</div>
-                  <div>(47) 99999-9999</div>
+                  <div>(48) 3093-5880</div>
+                  <div>(48) 99605-5656</div>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
                 <Mail className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
                 <div className="text-sm text-gray-300">
-                  contato@steinbach.com.br
+                  marcenariasteinbach@gmail.com
                 </div>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
                 <div className="text-sm text-gray-300">
-                  Rua das Palmeiras, 1500<br />
-                  Centro - Blumenau, SC<br />
-                  CEP: 89010-120
+                  R. Vítor Meireles, 11<br />
+                  Jardim Eldorado - Palhoça, SC<br />
+                  CEP: 88133-370
                 </div>
               </div>
             </div>
@@ -74,15 +74,19 @@ export function Footer() {
             <h3 className="text-lg font-semibold text-white">Siga-nos</h3>
             <div className="space-y-4">
               <div className="flex space-x-4">
-                <a 
-                  href="#" 
+                <a
+                  href="https://www.instagram.com/marcenariasteinbach/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-red-600 transition-colors"
                   aria-label="Instagram"
                 >
                   <Instagram className="w-5 h-5 text-white" />
                 </a>
-                <a 
-                  href="#" 
+                <a
+                  href="https://www.facebook.com/marcenariasteinbach/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-red-600 transition-colors"
                   aria-label="Facebook"
                 >
