@@ -12,7 +12,7 @@ const timeline = [
   {
     year: '1954',
     title: 'Fundação da Empresa',
-    description: 'Início da tradição familiar com o Sr. Otto Steinbach, criando os primeiros móveis artesanais.',
+    description: 'Início da tradição familiar com Germano José Steinbach, criando os primeiros móveis artesanais.',
     icon: Hammer,
     highlight: true
   },
@@ -183,7 +183,7 @@ export function AboutSection() {
 
                     <Image
                       src="/images/fundadores-steinbach.webp"
-                      alt="Sr. Otto Steinbach e esposa - Fundadores da Marcenaria Steinbach em 1954"
+                      alt="Germano José Steinbach e Maria Valmira Assing - Fundadores da Marcenaria Steinbach em 1954"
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1000px"
@@ -194,7 +194,7 @@ export function AboutSection() {
                   {/* Legenda dentro do frame */}
                   <div className="mt-4 text-center">
                     <p className="text-sm sm:text-base font-semibold text-gray-900 mb-1">
-                      Sr. Otto Steinbach e Esposa
+                      Germano José Steinbach e Maria Valmira Assing
                     </p>
                     <p className="text-xs sm:text-sm text-gray-600 flex items-center justify-center gap-2">
                       <Heart className="w-4 h-4 text-red-600" />

@@ -5,6 +5,8 @@ import {
   ArProjectsSection,
   StatsSection,
   AboutSection,
+  ValuesSection,
+  EcoPartnershipsSection,
   CompanySection,
   ContactFormSection
 } from '@/components/sections'
@@ -19,8 +21,10 @@ export default function Home() {
         <ArProjectsSection />
         <StatsSection />
         <AboutSection />
+        <ValuesSection />
         <CompanySection />
         <ContactFormSection />
+        <EcoPartnershipsSection />
       </main>
       <Footer />
     </>
