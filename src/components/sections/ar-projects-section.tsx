@@ -211,14 +211,20 @@ export function ArProjectsSection() {
               transition={{ delay: 0.8 }}
               className="pt-4"
             >
-              <Button
-                variant="gold"
-                size="lg"
-                className="group shadow-xl hover:scale-105 transition-all duration-300"
+              <a
+                href="https://wa.me/5548996055656?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20projeto%20em%203D/Realidade%20Aumentada."
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Solicitar Projeto em 3D
-                <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-              </Button>
+                <Button
+                  variant="gold"
+                  size="lg"
+                  className="group shadow-xl hover:scale-105 transition-all duration-300"
+                >
+                  Solicitar Projeto em 3D
+                  <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+                </Button>
+              </a>
             </motion.div>
           </motion.div>
         </div>

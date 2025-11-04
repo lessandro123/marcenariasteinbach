@@ -12,8 +12,7 @@ import {
   CheckCircle2,
   Home,
   Building2,
-  ArrowRight,
-  Store
+  ArrowRight
 } from "lucide-react"
 import { Button, buttonVariants } from "@/components/ui/button"
 import { Container } from "@/components/ui/container"
@@ -199,18 +198,6 @@ export function CompanySection() {
               <div className="w-full p-6 sm:p-8 lg:p-12">
                 <Container>
                   <div className="max-w-3xl">
-                    {/* Badge */}
-                    <motion.div
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.3 }}
-                      className="inline-flex items-center gap-2 bg-white/95 backdrop-blur-sm rounded-full px-4 py-2 mb-4 shadow-lg"
-                    >
-                      <Store className="w-5 h-5 text-red-600" />
-                      <span className="text-sm font-semibold text-gray-900">Nosso Showroom</span>
-                    </motion.div>
-
                     {/* Title */}
                     <motion.h3
                       initial={{ opacity: 0, y: 20 }}
@@ -251,14 +238,20 @@ export function CompanySection() {
                         <MapPin className="w-4 h-4 mr-2" />
                         Ver Localização
                       </a>
-                      <Button
-                        variant="outline"
-                        size="lg"
-                        className="bg-white/95 backdrop-blur-sm border-white text-gray-900 hover:bg-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                      <a
+                        href="https://wa.me/5548996055656?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20visita."
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
-                        Agendar Visita
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </Button>
+                        <Button
+                          variant="outline"
+                          size="lg"
+                          className="bg-white/95 backdrop-blur-sm border-white text-gray-900 hover:bg-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                        >
+                          Agendar Visita
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </Button>
+                      </a>
                     </motion.div>
                   </div>
                 </Container>
@@ -351,22 +344,34 @@ export function CompanySection() {
             com a qualidade e tradição Steinbach.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              variant="default"
-              size="lg"
-              className="group shadow-xl hover:scale-105 transition-all duration-300"
+            <a
+              href="https://wa.me/5548996055656?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20gr%C3%A1tis%20para%20m%C3%B3veis%20planejados."
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Solicitar Orçamento Grátis
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="group shadow-md hover:shadow-lg transition-all duration-300"
+              <Button
+                variant="default"
+                size="lg"
+                className="group shadow-xl hover:scale-105 transition-all duration-300"
+              >
+                Solicitar Orçamento Grátis
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </a>
+            <a
+              href="https://wa.me/5548996055656?text=Ol%C3%A1!%20Gostaria%20de%20ver%20o%20portf%C3%B3lio%20de%20projetos%20da%20Marcenaria%20Steinbach."
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Ver Nossos Projetos
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="group shadow-md hover:shadow-lg transition-all duration-300"
+              >
+                Ver Nossos Projetos
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </a>
           </div>
         </motion.div>
       </Container>

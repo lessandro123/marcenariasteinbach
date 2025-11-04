@@ -92,14 +92,21 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex items-center justify-center"
           >
-            <Button 
-              variant="gold" 
-              size="xl" 
+            <Button
+              variant="gold"
+              size="xl"
               className="group shadow-2xl min-w-[200px] hover:scale-105 transition-all duration-300"
+              asChild
             >
-              <Phone className="w-5 h-5" />
-              Orçamento Grátis
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <a
+                href="https://wa.me/5548996055656?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20gr%C3%A1tis"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Phone className="w-5 h-5" />
+                Orçamento Grátis
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
             </Button>
           </motion.div>
 

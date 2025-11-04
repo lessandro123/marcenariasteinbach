@@ -288,14 +288,20 @@ export function AboutSection() {
             <p className="text-lg text-gray-700 mb-6">
               Conheça nosso showroom e viva essa experiência única
             </p>
-            <Button 
-              variant="gold" 
-              size="lg" 
-              className="group shadow-xl hover:scale-105 transition-all duration-300"
+            <a
+              href="https://wa.me/5548996055656?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20visita."
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Agendar Visita
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
+              <Button
+                variant="gold"
+                size="lg"
+                className="group shadow-xl hover:scale-105 transition-all duration-300"
+              >
+                Agendar Visita
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </a>
           </motion.div>
         </motion.div>
       </Container>
