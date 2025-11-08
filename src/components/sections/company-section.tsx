@@ -227,15 +227,15 @@ export function CompanySection() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.6 }}
-                      className="flex flex-wrap gap-4"
+                      className="flex flex-wrap gap-2 sm:gap-4"
                     >
                       <a
                         href="https://www.google.com/maps?ll=-27.62977,-48.661946&z=18&t=m&hl=pt-PT&gl=US&mapclient=embed&cid=9840515860392962567"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={buttonVariants({ variant: "default", size: "lg" }) + " bg-[var(--red-primary)] hover:bg-[var(--red-hover)] text-white shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"}
+                        className={buttonVariants({ variant: "default", size: "default" }) + " bg-[var(--red-primary)] hover:bg-[var(--red-hover)] text-white shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer sm:px-6 sm:py-3 text-sm sm:text-base"}
                       >
-                        <MapPin className="w-4 h-4 mr-2" />
+                        <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
                         Ver Localização
                       </a>
                       <a
@@ -245,11 +245,11 @@ export function CompanySection() {
                       >
                         <Button
                           variant="outline"
-                          size="lg"
-                          className="bg-white/95 backdrop-blur-sm border-white text-gray-900 hover:bg-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                          size="default"
+                          className="bg-white/95 backdrop-blur-sm border-white text-gray-900 hover:bg-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 sm:px-6 sm:py-3 text-sm sm:text-base"
                         >
                           Agendar Visita
-                          <ArrowRight className="w-4 h-4 ml-2" />
+                          <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-1.5 sm:ml-2" />
                         </Button>
                       </a>
                     </motion.div>

@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server';
+import { Resend } from 'resend';
 import { contactFormSchema } from '@/lib/validations';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
@@ -8,40 +11,50 @@ export async function POST(request: Request) {
     // Valida os dados recebidos
     const validatedData = contactFormSchema.parse(body);
 
-    // TODO: Configurar serviço de email (Resend, SendGrid, Nodemailer, etc.)
-    // Por enquanto, vamos simular o envio de email
-
-    // Exemplo de configuração futura:
-    // import { Resend } from 'resend';
-    // const resend = new Resend(process.env.RESEND_API_KEY);
-    //
-    // await resend.emails.send({
-    //   from: 'contato@marcenaria-steinbach.com.br',
-    //   to: 'atendimento@marcenaria-steinbach.com.br',
-    //   subject: `Novo contato de ${validatedData.name}`,
-    //   html: `
-    //     <h2>Novo Contato Recebido</h2>
-    //     <p><strong>Nome:</strong> ${validatedData.name}</p>
-    //     <p><strong>Telefone:</strong> ${validatedData.phone}</p>
-    //     <p><strong>Comentário:</strong> ${validatedData.comment || 'Nenhum comentário'}</p>
-    //   `,
-    // });
-
     // Log dos dados recebidos (para desenvolvimento)
     console.log('📧 Novo contato recebido:', validatedData);
 
-    // Simula um delay de rede
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    // Verifica se as variáveis de ambiente estão configuradas
+    if (!process.env.RESEND_API_KEY) {
+      throw new Error('RESEND_API_KEY não configurada');
+    }
 
-    // Por enquanto, vamos retornar erro para testar o fallback do WhatsApp
-    // Quando configurar o serviço de email, remova este throw
-    throw new Error('Serviço de email não configurado - usando fallback WhatsApp');
+    if (!process.env.CONTACT_EMAIL) {
+      throw new Error('CONTACT_EMAIL não configurada');
+    }
 
-    // Quando o email estiver configurado, retornar sucesso:
-    // return NextResponse.json(
-    //   { message: 'Contato enviado com sucesso!' },
-    //   { status: 200 }
-    // );
+    // Monta o corpo do email em texto simples
+    const emailBody = `
+NOVO CONTATO - Marcenaria Steinbach
+
+Nome: ${validatedData.name}
+Telefone: ${validatedData.phone}
+Comentário: ${validatedData.comment || 'Nenhum comentário fornecido'}
+
+---
+Este email foi enviado através do formulário de contato do site.
+Data: ${new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })}
+    `.trim();
+
+    // Envia o email usando Resend
+    const { data, error } = await resend.emails.send({
+      from: process.env.FROM_EMAIL || 'onboarding@resend.dev',
+      to: process.env.CONTACT_EMAIL,
+      subject: `Novo Contato - ${validatedData.name}`,
+      text: emailBody,
+    });
+
+    if (error) {
+      console.error('❌ Erro ao enviar email:', error);
+      throw error;
+    }
+
+    console.log('✅ Email enviado com sucesso:', data);
+
+    return NextResponse.json(
+      { message: 'Contato enviado com sucesso!' },
+      { status: 200 }
+    );
   } catch (error) {
     console.error('❌ Erro ao processar contato:', error);
 

@@ -8,7 +8,8 @@ import {
   ValuesSection,
   EcoPartnershipsSection,
   CompanySection,
-  ContactFormSection
+  ContactFormSection,
+  FaqSection
 } from '@/components/sections'
 
 export default function Home() {
@@ -24,6 +25,7 @@ export default function Home() {
         <ValuesSection />
         <CompanySection />
         <ContactFormSection />
+        <FaqSection />
         <EcoPartnershipsSection />
       </main>
       <Footer />

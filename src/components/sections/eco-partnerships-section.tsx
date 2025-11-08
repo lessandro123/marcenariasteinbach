@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Leaf, Trees, Recycle, Award } from 'lucide-react';
+import { InfiniteCarousel, Partner } from '@/components/ui/infinite-carousel';
 
 const partnerships = [
   {
@@ -27,6 +28,29 @@ const partnerships = [
     description:
       'Implementamos práticas de gestão responsável de resíduos, reciclando e reutilizando materiais sempre que possível, minimizando nosso impacto ambiental.',
     color: 'from-teal-500 to-cyan-600',
+  },
+];
+
+const partners: Partner[] = [
+  {
+    name: 'Arauco',
+    logo: '/images/partners/arauco.webp',
+  },
+  {
+    name: 'Duratex',
+    logo: '/images/partners/duratex.jpg',
+  },
+  {
+    name: 'Berneck',
+    logo: '/images/partners/berneck.jpg',
+  },
+  {
+    name: 'Guararapes',
+    logo: '/images/partners/guararapes.jpg',
+  },
+  {
+    name: 'Greenplac',
+    logo: '/images/partners/greenplac.webp',
   },
 ];
 
@@ -125,6 +149,25 @@ export function EcoPartnershipsSection() {
               </motion.div>
             );
           })}
+        </motion.div>
+
+        {/* Partners Carousel */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-20"
+        >
+          <div className="text-center mb-8">
+            <h3 className="font-serif text-3xl font-bold text-neutral-900 mb-2">
+              Nossos Parceiros Certificados
+            </h3>
+            <p className="text-neutral-600">
+              Trabalhamos com os maiores fornecedores de madeira sustentável do Brasil
+            </p>
+          </div>
+          <InfiniteCarousel partners={partners} speed={30} />
         </motion.div>
 
         {/* Additional info banner */}
