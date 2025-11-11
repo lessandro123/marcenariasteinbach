@@ -3,6 +3,7 @@
 import * as React from "react"
 import { motion } from "framer-motion"
 import Image from "next/image"
+import Link from "next/link"
 import {
   ArrowRight,
   ChefHat,
@@ -103,6 +104,18 @@ const ambientes = [
     icon: Wine
   }
 ]
+
+// Mapeamento de IDs do carrossel para URLs de projetos
+const ambienteToProjectUrl: Record<string, string> = {
+  'cozinha': 'cozinha-premium',
+  'dormitorio': 'dormitorio-sob-medida',
+  'sala': 'sala-estar',
+  'escritorio': 'home-office',
+  'banheiro': 'banheiro-premium',
+  'lavanderia': 'lavanderia-planejada',
+  'varanda': 'varanda-gourmet',
+  'adega': 'adega-climatizada'
+}
 
 export function AmbientesShowcase() {
   const [api, setApi] = React.useState<CarouselApi>()
@@ -221,12 +234,15 @@ export function AmbientesShowcase() {
                                 className="pt-2 sm:pt-3 lg:pt-5"
                               >
                                 <Button
+                                  asChild
                                   variant="gold"
                                   size="sm"
                                   className="group shadow-xl hover:scale-105 transition-all duration-300 text-xs sm:text-base h-9 sm:h-10 px-3 sm:px-4"
                                 >
-                                  Ver Projetos
-                                  <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
+                                  <Link href={`/projetos/${ambienteToProjectUrl[ambiente.id]}`}>
+                                    Ver Projetos
+                                    <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
+                                  </Link>
                                 </Button>
                               </motion.div>
                             </motion.div>

@@ -2,7 +2,8 @@
 
 import * as React from "react"
 import Image from "next/image"
-import { Menu, X } from "lucide-react"
+import Link from "next/link"
+import { Menu, X, Home } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Container } from "@/components/ui/container"
 import { WhatsAppIcon } from "@/components/icons"
@@ -13,19 +14,31 @@ export function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b-2 border-red-primary z-50 overflow-x-hidden">
-      {/* Mobile/Desktop menu button - Left Corner */}
-      <button
-        type="button"
-        className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 p-2 sm:p-3 text-gray-700 hover:text-red-600 rounded-md transition-colors duration-300 z-10 min-h-[48px] min-w-[48px] flex items-center justify-center"
-        onClick={toggleMenu}
-      >
-        <span className="sr-only">Abrir menu principal</span>
-        {mobileMenuOpen ? (
-          <X className="h-6 w-6 sm:h-8 sm:w-8" strokeWidth={1} />
-        ) : (
-          <Menu className="h-6 w-6 sm:h-8 sm:w-8" strokeWidth={1} />
-        )}
-      </button>
+      {/* Left Corner - Menu e Home */}
+      <div className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 flex items-center gap-2 z-10">
+        {/* Mobile/Desktop menu button */}
+        <button
+          type="button"
+          className="p-2 sm:p-3 text-gray-700 hover:text-red-600 rounded-md transition-colors duration-300 min-h-[48px] min-w-[48px] flex items-center justify-center"
+          onClick={toggleMenu}
+        >
+          <span className="sr-only">Abrir menu principal</span>
+          {mobileMenuOpen ? (
+            <X className="h-6 w-6 sm:h-8 sm:w-8" strokeWidth={1} />
+          ) : (
+            <Menu className="h-6 w-6 sm:h-8 sm:w-8" strokeWidth={1} />
+          )}
+        </button>
+
+        {/* Home button */}
+        <Link
+          href="/#ambientes"
+          className="p-2 sm:p-3 text-gray-700 hover:text-red-600 rounded-md transition-colors duration-300 min-h-[48px] min-w-[48px] flex items-center justify-center"
+          title="Voltar para Ambientes"
+        >
+          <Home className="h-6 w-6 sm:h-8 sm:w-8" strokeWidth={1} />
+        </Link>
+      </div>
 
       {/* CTA Button - Right Corner */}
       <a
