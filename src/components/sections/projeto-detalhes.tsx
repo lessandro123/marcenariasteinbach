@@ -14,6 +14,18 @@ import {
   Shirt,
   Coffee,
   Wine,
+  Sparkles,
+  Monitor,
+  BookOpen,
+  MonitorCheck,
+  Lightbulb,
+  Frame,
+  Droplets,
+  Archive,
+  Table,
+  Wind,
+  Flame,
+  Thermometer,
   LucideIcon
 } from 'lucide-react';
 import { ProjetoDetalhes } from '@/lib/projetos-data';
@@ -35,7 +47,19 @@ const iconMap: Record<string, LucideIcon> = {
   Bath,
   Shirt,
   Coffee,
-  Wine
+  Wine,
+  Sparkles,
+  Monitor,
+  BookOpen,
+  MonitorCheck,
+  Lightbulb,
+  Frame,
+  Droplets,
+  Archive,
+  Table,
+  Wind,
+  Flame,
+  Thermometer
 };
 
 export function ProjetoDetalhesSection({ projeto }: ProjetoDetalhesProps) {
@@ -44,7 +68,7 @@ export function ProjetoDetalhesSection({ projeto }: ProjetoDetalhesProps) {
 
   return (
     <>
-      {/* Hero Section com Imagem de Fundo - Apenas Imagem */}
+      {/* Hero Section com Imagem de Fundo + Conteúdo */}
       <section className="relative h-[70vh] overflow-hidden">
         {/* Imagem de Fundo */}
         <div className="absolute inset-0 z-0">
@@ -56,58 +80,30 @@ export function ProjetoDetalhesSection({ projeto }: ProjetoDetalhesProps) {
             priority
             quality={90}
           />
-          {/* Overlay escuro para profundidade */}
-          <div className="absolute inset-0 bg-black/40" />
+          {/* Overlay escuro para profundidade e legibilidade */}
+          <div className="absolute inset-0 bg-black/50" />
         </div>
-      </section>
 
-      {/* CTA Topo */}
-      <section className="bg-white py-6">
-        <div className="flex items-center justify-end px-4 sm:px-6">
-          {/* Botão CTA à direita */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 bg-[#25D366] hover:bg-[#20BA5A] text-white text-sm font-medium rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group"
+        {/* Conteúdo Centralizado */}
+        <div className="relative z-10 h-full flex items-center justify-center">
+          <Container>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="max-w-4xl mx-auto text-center"
             >
-              <MessageCircle className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform" />
-              <span className="hidden sm:inline">Solicitar Orçamento Grátis</span>
-              <span className="sm:hidden">Orçamento</span>
-            </a>
-          </motion.div>
+              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                {projeto.title}
+              </h1>
+
+              <p className="text-lg sm:text-xl text-white/90 leading-relaxed">
+                {projeto.heroDescription}
+              </p>
+            </motion.div>
+          </Container>
         </div>
       </section>
-
-      {/* Título e Descrição do Projeto */}
-      <Section variant="default" className="py-16 bg-white">
-        <Container>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto text-center"
-          >
-            {/* Barra vermelha decorativa */}
-            <div className="inline-block mb-6">
-              <div className={`h-2 w-24 bg-gradient-to-r ${projeto.color} rounded-full mx-auto`} />
-            </div>
-
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              {projeto.title}
-            </h1>
-
-            <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
-              {projeto.heroDescription}
-            </p>
-          </motion.div>
-        </Container>
-      </Section>
 
       {/* Funcionalidades */}
       <Section variant="default" className="py-20">

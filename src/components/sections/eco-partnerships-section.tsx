@@ -167,7 +167,7 @@ export function EcoPartnershipsSection() {
               Trabalhamos com os maiores fornecedores de madeira sustentável do Brasil
             </p>
           </div>
-          <InfiniteCarousel partners={partners} speed={30} />
+          <InfiniteCarousel partners={partners} speed={8} />
         </motion.div>
 
         {/* Additional info banner */}

@@ -3,6 +3,7 @@
 import * as React from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Menu, X, Home } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Container } from "@/components/ui/container"
@@ -11,6 +12,8 @@ import { useMenu } from "@/contexts/MenuContext"
 
 export function Header() {
   const { mobileMenuOpen, toggleMenu } = useMenu()
+  const pathname = usePathname()
+  const isHomepage = pathname === '/'
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b-2 border-red-primary z-50 overflow-x-hidden">
@@ -30,14 +33,16 @@ export function Header() {
           )}
         </button>
 
-        {/* Home button */}
-        <Link
-          href="/#ambientes"
-          className="p-2 sm:p-3 text-gray-700 hover:text-red-600 rounded-md transition-colors duration-300 min-h-[48px] min-w-[48px] flex items-center justify-center"
-          title="Voltar para Ambientes"
-        >
-          <Home className="h-6 w-6 sm:h-8 sm:w-8" strokeWidth={1} />
-        </Link>
+        {/* Home button - apenas em páginas que não são a homepage */}
+        {!isHomepage && (
+          <Link
+            href="/#ambientes"
+            className="p-2 sm:p-3 text-gray-700 hover:text-red-600 rounded-md transition-colors duration-300 min-h-[48px] min-w-[48px] flex items-center justify-center"
+            title="Voltar para Ambientes"
+          >
+            <Home className="h-6 w-6 sm:h-8 sm:w-8" strokeWidth={1} />
+          </Link>
+        )}
       </div>
 
       {/* CTA Button - Right Corner */}

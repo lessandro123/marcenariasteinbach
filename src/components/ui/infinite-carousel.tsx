@@ -23,7 +23,7 @@ export function InfiniteCarousel({ partners, speed = 30 }: InfiniteCarouselProps
       <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-white z-10 pointer-events-none"></div>
 
       <motion.div
-        className="flex gap-16 items-center"
+        className="flex gap-12 items-center"
         animate={{
           x: [0, -100 / 3 + '%'],
         }}
@@ -39,7 +39,7 @@ export function InfiniteCarousel({ partners, speed = 30 }: InfiniteCarouselProps
         {duplicatedPartners.map((partner, index) => (
           <div
             key={`${partner.name}-${index}`}
-            className="flex-shrink-0 w-[200px] h-[100px] relative grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100"
+            className="flex-shrink-0 w-[180px] h-[90px] relative grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100"
           >
             <Image
               src={partner.logo}
@@ -47,7 +47,7 @@ export function InfiniteCarousel({ partners, speed = 30 }: InfiniteCarouselProps
               fill
               className="object-contain"
               quality={85}
-              sizes="200px"
+              sizes="180px"
             />
           </div>
         ))}

@@ -44,7 +44,7 @@ export const projetos: ProjetoDetalhes[] = [
       '/images/cozinha-premium-polaroid.jpg',
       '/images/cozinha-premium-3.jpg'
     ],
-    imagemPrincipal: '/images/cozinha-premium-hdr.jpg',
+    imagemPrincipal: '/images/cozinha-premium-hero.png',
     color: 'from-red-600 to-red-800',
     whatsappMessage: 'Olá! Gostaria de solicitar um orçamento para um projeto de Cozinha Premium. Pode me enviar mais informações?'
   },
@@ -56,7 +56,7 @@ export const projetos: ProjetoDetalhes[] = [
     heroDescription: 'Crie o dormitório dos seus sonhos com móveis planejados que otimizam cada centímetro do espaço. Design elegante, funcionalidade e conforto para seu descanso perfeito.',
     features: [
       {
-        iconName: 'Bed',
+        iconName: 'Shirt',
         title: 'Guarda-Roupas Planejado',
         description: 'Closets e armários com divisórias inteligentes, gaveteiros e araras ajustáveis às suas necessidades.'
       },
@@ -66,7 +66,7 @@ export const projetos: ProjetoDetalhes[] = [
         description: 'Design exclusivo com iluminação integrada, criados-mudos e painéis que valorizam o ambiente.'
       },
       {
-        iconName: 'Bed',
+        iconName: 'Sparkles',
         title: 'Acabamentos Sofisticados',
         description: 'Materiais nobres, espelhos bisotados e detalhes em marcenaria fina para um quarto elegante.'
       }
@@ -75,7 +75,7 @@ export const projetos: ProjetoDetalhes[] = [
       '/images/dormitorio-sob-medida.jpg'
     ],
     imagemPrincipal: '/images/dormitorio-sob-medida.jpg',
-    color: 'from-blue-600 to-blue-800',
+    color: 'from-amber-600 to-amber-800',
     whatsappMessage: 'Olá! Gostaria de solicitar um orçamento para um projeto de Dormitório Sob Medida. Pode me enviar mais informações?'
   },
   {
@@ -86,17 +86,17 @@ export const projetos: ProjetoDetalhes[] = [
     heroDescription: 'Uma sala de estar que reflete seu estilo de vida. Painéis decorativos, estantes planejadas e móveis que transformam seu espaço em um ambiente acolhedor e sofisticado.',
     features: [
       {
-        iconName: 'Sofa',
+        iconName: 'Monitor',
         title: 'Painel TV Planejado',
         description: 'Design moderno com nichos, iluminação LED e suporte para equipamentos integrado.'
       },
       {
-        iconName: 'Sofa',
+        iconName: 'BookOpen',
         title: 'Estantes e Prateleiras',
         description: 'Soluções personalizadas para livros, objetos decorativos e sistemas de som.'
       },
       {
-        iconName: 'Sofa',
+        iconName: 'Sparkles',
         title: 'Marcenaria Decorativa',
         description: 'Detalhes em madeira nobre, acabamentos especiais e elementos que agregam valor ao ambiente.'
       }
@@ -105,7 +105,7 @@ export const projetos: ProjetoDetalhes[] = [
       '/images/sala-estar.webp'
     ],
     imagemPrincipal: '/images/sala-estar.webp',
-    color: 'from-amber-600 to-amber-800',
+    color: 'from-emerald-600 to-emerald-800',
     whatsappMessage: 'Olá! Gostaria de solicitar um orçamento para um projeto de Sala de Estar. Pode me enviar mais informações?'
   },
   {
@@ -116,17 +116,17 @@ export const projetos: ProjetoDetalhes[] = [
     heroDescription: 'Trabalhe com conforto e eficiência em um home office planejado especialmente para você. Móveis ergonômicos, organização inteligente e design que inspira produtividade.',
     features: [
       {
-        iconName: 'Laptop',
+        iconName: 'MonitorCheck',
         title: 'Bancada Ergonômica',
         description: 'Mesa planejada com altura ideal, passagem de cabos organizada e espaço otimizado.'
       },
       {
-        iconName: 'Laptop',
+        iconName: 'BookOpen',
         title: 'Estante Multifuncional',
         description: 'Prateleiras ajustáveis, nichos para equipamentos e gavetas para documentos.'
       },
       {
-        iconName: 'Laptop',
+        iconName: 'Lightbulb',
         title: 'Iluminação Focada',
         description: 'Sistema de iluminação LED integrado que favorece a concentração e reduz fadiga visual.'
       }
@@ -135,7 +135,7 @@ export const projetos: ProjetoDetalhes[] = [
       '/images/home-office.webp'
     ],
     imagemPrincipal: '/images/home-office.webp',
-    color: 'from-green-600 to-green-800',
+    color: 'from-blue-600 to-blue-800',
     whatsappMessage: 'Olá! Gostaria de solicitar um orçamento para um projeto de Home Office. Pode me enviar mais informações?'
   },
   {
@@ -151,12 +151,12 @@ export const projetos: ProjetoDetalhes[] = [
         description: 'Móveis sob medida com tratamento anti-umidade, gavetas organizadoras e cubas integradas.'
       },
       {
-        iconName: 'Bath',
+        iconName: 'Frame',
         title: 'Espelheiras e Nichos',
         description: 'Espelhos com LED, nichos para produtos e prateleiras em vidro temperado.'
       },
       {
-        iconName: 'Bath',
+        iconName: 'Droplets',
         title: 'Acabamentos Impermeáveis',
         description: 'Materiais de alta qualidade, resistentes à água e ao vapor, com design atemporal.'
       }
@@ -165,7 +165,7 @@ export const projetos: ProjetoDetalhes[] = [
       '/images/banheiro-premium.jpg'
     ],
     imagemPrincipal: '/images/banheiro-premium.jpg',
-    color: 'from-cyan-600 to-cyan-800',
+    color: 'from-teal-600 to-teal-800',
     whatsappMessage: 'Olá! Gostaria de solicitar um orçamento para um projeto de Banheiro Premium. Pode me enviar mais informações?'
   },
   {
@@ -176,17 +176,17 @@ export const projetos: ProjetoDetalhes[] = [
     heroDescription: 'Transforme sua área de serviço em um espaço funcional e organizado. Soluções inteligentes que otimizam o espaço e facilitam sua rotina.',
     features: [
       {
-        iconName: 'Shirt',
+        iconName: 'Archive',
         title: 'Armários Multiuso',
         description: 'Espaço para máquinas, produtos de limpeza, vassouras e organização de roupas.'
       },
       {
-        iconName: 'Shirt',
+        iconName: 'Table',
         title: 'Bancada de Trabalho',
         description: 'Superfície resistente para dobrar roupas, com tanque integrado e torneiras práticas.'
       },
       {
-        iconName: 'Shirt',
+        iconName: 'Wind',
         title: 'Varal Embutido',
         description: 'Soluções retráteis e suspensas que economizam espaço e facilitam a secagem.'
       }
@@ -206,17 +206,17 @@ export const projetos: ProjetoDetalhes[] = [
     heroDescription: 'Crie momentos inesquecíveis em uma varanda gourmet planejada. Churrasqueira, bancadas, adega e área de convivência em perfeita harmonia.',
     features: [
       {
-        iconName: 'Coffee',
+        iconName: 'Flame',
         title: 'Área de Churrasco',
         description: 'Churrasqueira de alta performance com coifa, bancada de apoio e armários para utensílios.'
       },
       {
-        iconName: 'Coffee',
+        iconName: 'Wine',
         title: 'Bar Integrado',
         description: 'Bancada para drinks, adega climatizada e prateleiras para taças e garrafas.'
       },
       {
-        iconName: 'Coffee',
+        iconName: 'Sparkles',
         title: 'Marcenaria Externa',
         description: 'Materiais resistentes às intempéries, design elegante e funcionalidade para área externa.'
       }
@@ -236,7 +236,7 @@ export const projetos: ProjetoDetalhes[] = [
     heroDescription: 'Uma adega climatizada que preserva seus vinhos com perfeição. Design sofisticado com temperatura controlada, iluminação LED e marcenaria exclusiva.',
     features: [
       {
-        iconName: 'Wine',
+        iconName: 'Thermometer',
         title: 'Sistema de Climatização',
         description: 'Temperatura e umidade controladas para conservação ideal dos vinhos.'
       },
@@ -246,7 +246,7 @@ export const projetos: ProjetoDetalhes[] = [
         description: 'Design personalizado para organizar e expor sua coleção de forma elegante.'
       },
       {
-        iconName: 'Wine',
+        iconName: 'Lightbulb',
         title: 'Iluminação Especial',
         description: 'LED com baixa emissão de calor que valoriza as garrafas sem comprometer o vinho.'
       }
@@ -255,7 +255,7 @@ export const projetos: ProjetoDetalhes[] = [
       '/images/adega-climatizada-renan.webp'
     ],
     imagemPrincipal: '/images/adega-climatizada-renan.webp',
-    color: 'from-rose-600 to-rose-800',
+    color: 'from-red-800 to-red-900',
     whatsappMessage: 'Olá! Gostaria de solicitar um orçamento para um projeto de Adega Climatizada. Pode me enviar mais informações?'
   }
 ];
