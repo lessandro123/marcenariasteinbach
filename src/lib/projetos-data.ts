@@ -74,7 +74,7 @@ export const projetos: ProjetoDetalhes[] = [
     galeria: [
       '/images/dormitorio-sob-medida.jpg'
     ],
-    imagemPrincipal: '/images/dormitorio-sob-medida.jpg',
+    imagemPrincipal: '/images/dormitorio-sob-medida-hero.png',
     color: 'from-amber-600 to-amber-800',
     whatsappMessage: 'Olá! Gostaria de solicitar um orçamento para um projeto de Dormitório Sob Medida. Pode me enviar mais informações?'
   },

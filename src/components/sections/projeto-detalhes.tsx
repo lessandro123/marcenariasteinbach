@@ -33,6 +33,7 @@ import { Button } from '@/components/ui/button';
 import { Section } from '@/components/ui/section';
 import { Container } from '@/components/ui/container';
 import { Card, CardContent } from '@/components/ui/card';
+import FaqSection from '@/components/sections/faq-section';
 
 interface ProjetoDetalhesProps {
   projeto: ProjetoDetalhes;
@@ -69,7 +70,7 @@ export function ProjetoDetalhesSection({ projeto }: ProjetoDetalhesProps) {
   return (
     <>
       {/* Hero Section com Imagem de Fundo + Conteúdo */}
-      <section className="relative h-[70vh] overflow-hidden">
+      <section className="relative min-h-[calc(100vh-56px)] sm:min-h-[calc(100vh-64px)] lg:min-h-screen overflow-hidden flex items-center justify-center py-32">
         {/* Imagem de Fundo */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -85,7 +86,7 @@ export function ProjetoDetalhesSection({ projeto }: ProjetoDetalhesProps) {
         </div>
 
         {/* Conteúdo Centralizado */}
-        <div className="relative z-10 h-full flex items-center justify-center">
+        <div className="relative z-10">
           <Container>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -213,6 +214,9 @@ export function ProjetoDetalhesSection({ projeto }: ProjetoDetalhesProps) {
           </div>
         </Container>
       </Section>
+
+      {/* FAQ Section */}
+      <FaqSection categoria={projeto.categoria} />
 
       {/* CTA Final */}
       <Section variant="default" className="py-20">

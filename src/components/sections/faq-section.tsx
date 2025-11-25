@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Accordion, { type AccordionItem } from '@/components/ui/accordion';
 import { faqData } from '@/lib/faq-data';
+import { getFAQByCategoria } from '@/lib/faq-por-categoria';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -26,7 +27,14 @@ const itemVariants = {
   },
 };
 
-export default function FaqSection() {
+interface FaqSectionProps {
+  categoria?: string;
+}
+
+export default function FaqSection({ categoria }: FaqSectionProps) {
+  // Se categoria for fornecida, usa FAQs específicas. Senão, usa FAQs genéricas
+  const faqDataToUse = categoria ? getFAQByCategoria(categoria) : faqData;
+
   return (
     <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4 max-w-7xl">
@@ -56,7 +64,7 @@ export default function FaqSection() {
           viewport={{ once: true, margin: '-100px' }}
           className="space-y-12"
         >
-          {faqData.map((category) => {
+          {faqDataToUse.map((category) => {
             // Converter FAQItems para AccordionItems
             const accordionItems: AccordionItem[] = category.items.map((item) => ({
               id: item.id,
