@@ -134,7 +134,7 @@ export const projetos: ProjetoDetalhes[] = [
     galeria: [
       '/images/home-office.webp'
     ],
-    imagemPrincipal: '/images/home-office.webp',
+    imagemPrincipal: '/images/home-office-hero.png',
     color: 'from-blue-600 to-blue-800',
     whatsappMessage: 'Olá! Gostaria de solicitar um orçamento para um projeto de Home Office. Pode me enviar mais informações?'
   },
@@ -164,7 +164,7 @@ export const projetos: ProjetoDetalhes[] = [
     galeria: [
       '/images/banheiro-premium.jpg'
     ],
-    imagemPrincipal: '/images/banheiro-premium.jpg',
+    imagemPrincipal: '/images/banheiro-premium-hero.png',
     color: 'from-teal-600 to-teal-800',
     whatsappMessage: 'Olá! Gostaria de solicitar um orçamento para um projeto de Banheiro Premium. Pode me enviar mais informações?'
   },
@@ -194,7 +194,7 @@ export const projetos: ProjetoDetalhes[] = [
     galeria: [
       '/images/lavanderia-premium.jpg'
     ],
-    imagemPrincipal: '/images/lavanderia-premium.jpg',
+    imagemPrincipal: '/images/lavanderia-planejada-hero.png',
     color: 'from-purple-600 to-purple-800',
     whatsappMessage: 'Olá! Gostaria de solicitar um orçamento para um projeto de Lavanderia Planejada. Pode me enviar mais informações?'
   },
@@ -224,7 +224,7 @@ export const projetos: ProjetoDetalhes[] = [
     galeria: [
       '/images/varanda-gourmet-renan.webp'
     ],
-    imagemPrincipal: '/images/varanda-gourmet-renan.webp',
+    imagemPrincipal: '/images/varanda-gourmet-hero.png',
     color: 'from-orange-600 to-orange-800',
     whatsappMessage: 'Olá! Gostaria de solicitar um orçamento para um projeto de Varanda Gourmet. Pode me enviar mais informações?'
   },
@@ -254,7 +254,7 @@ export const projetos: ProjetoDetalhes[] = [
     galeria: [
       '/images/adega-climatizada-renan.webp'
     ],
-    imagemPrincipal: '/images/adega-climatizada-renan.webp',
+    imagemPrincipal: '/images/adega-climatizada-hero.png',
     color: 'from-red-800 to-red-900',
     whatsappMessage: 'Olá! Gostaria de solicitar um orçamento para um projeto de Adega Climatizada. Pode me enviar mais informações?'
   }
