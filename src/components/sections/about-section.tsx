@@ -99,8 +99,26 @@ function TimelineItem({ item, index }: { item: typeof timeline[0], index: number
 
 export function AboutSection() {
   return (
-    <Section id="sobre" className="bg-gradient-to-b from-gray-50 to-white" spacing="xl">
-      <Container>
+    <Section id="sobre" className="relative overflow-hidden" spacing="xl">
+      {/* Background Image com blur */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/ferramentas-marcenaria.jpg"
+          alt="Ferramentas de marcenaria artesanal - Tradição Steinbach"
+          fill
+          className="object-cover object-center blur-sm"
+          sizes="100vw"
+          priority={false}
+        />
+      </div>
+
+      {/* Overlay escuro suave */}
+      <div className="absolute inset-0 z-0 bg-black/30"></div>
+
+      {/* Grid pattern overlay */}
+      <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+
+      <Container className="relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

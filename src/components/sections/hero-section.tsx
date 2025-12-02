@@ -99,12 +99,12 @@ export function HeroSection() {
               asChild
             >
               <a
-                href="https://wa.me/5548996055656?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20gr%C3%A1tis"
+                href="https://wa.me/5548996055656?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20sem%20compromisso"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <Phone className="w-5 h-5" />
-                Orçamento Grátis
+                Orçamento sem Compromisso
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>

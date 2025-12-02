@@ -27,7 +27,7 @@ const diferenciais = [
   },
   {
     icon: Award,
-    title: 'Orçamento Grátis',
+    title: 'Orçamento sem Compromisso',
     description: 'Consulta sem compromisso para seu projeto personalizado'
   },
   {
@@ -306,23 +306,38 @@ export function CompanySection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-br from-green-50 to-white rounded-2xl p-8 sm:p-12 shadow-lg border border-green-100 mb-16"
+          className="relative rounded-2xl p-8 sm:p-12 shadow-lg border border-green-100 mb-16 overflow-hidden"
         >
-          <div className="flex flex-col md:flex-row items-center gap-8">
+          {/* Background Image */}
+          <div className="absolute inset-0">
+            <Image
+              src="/images/floresta-sustentabilidade.png"
+              alt="Floresta certificada FSC - Madeira sustentável"
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 768px) 100vw, 1200px"
+            />
+          </div>
+
+          {/* Overlay - Tom verde transparente */}
+          <div className="absolute inset-0 bg-gradient-to-br from-green-900/85 via-green-800/80 to-green-900/85"></div>
+
+          {/* Content */}
+          <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
             <div className="flex-shrink-0">
-              <div className="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center">
+              <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-white/30">
                 <Leaf className="w-10 h-10 text-white" />
               </div>
             </div>
             <div className="flex-1 text-center md:text-left">
-              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
                 Compromisso com a Sustentabilidade
               </h3>
-              <p className="text-lg text-gray-600 mb-4">
-                Trabalhamos exclusivamente com <strong className="text-green-600">madeira certificada FSC</strong>,
+              <p className="text-lg text-white/95 mb-4">
+                Trabalhamos exclusivamente com <strong className="text-green-200 font-bold">madeira certificada FSC</strong>,
                 garantindo que cada móvel é produzido com responsabilidade ambiental e madeira de reflorestamento.
               </p>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-white/80">
                 Certificação FSC - Forest Stewardship Council
               </p>
             </div>
@@ -345,7 +360,7 @@ export function CompanySection() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://wa.me/5548996055656?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20gr%C3%A1tis%20para%20m%C3%B3veis%20planejados."
+              href="https://wa.me/5548996055656?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20sem%20compromisso%20para%20m%C3%B3veis%20planejados."
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -354,7 +369,7 @@ export function CompanySection() {
                 size="lg"
                 className="group shadow-xl hover:scale-105 transition-all duration-300"
               >
-                Solicitar Orçamento Grátis
+                Solicitar Orçamento sem Compromisso
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </a>

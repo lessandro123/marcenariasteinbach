@@ -1,8 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Leaf, Trees, Recycle, Award } from 'lucide-react';
-import { InfiniteCarousel, Partner } from '@/components/ui/infinite-carousel';
 
 const partnerships = [
   {
@@ -31,7 +31,7 @@ const partnerships = [
   },
 ];
 
-const partners: Partner[] = [
+const partners = [
   {
     name: 'Arauco',
     logo: '/images/partners/arauco.webp',
@@ -78,11 +78,26 @@ const itemVariants = {
 
 export function EcoPartnershipsSection() {
   return (
-    <section className="py-24 bg-gradient-to-b from-green-50/30 to-white relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+    <section className="relative py-24 overflow-hidden">
+      {/* Background Image - Full Section */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/floresta-sustentabilidade.png"
+          alt="Floresta certificada FSC - Sustentabilidade"
+          fill
+          className="object-cover object-center blur-sm"
+          sizes="100vw"
+          priority={false}
+        />
+      </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+      {/* Overlay escuro suave */}
+      <div className="absolute inset-0 z-0 bg-black/30"></div>
+
+      {/* Grid pattern overlay */}
+      <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -90,16 +105,11 @@ export function EcoPartnershipsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
-            <Leaf className="w-4 h-4" />
-            Sustentabilidade
-          </div>
-
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-black mb-4">
             Compromisso Ambiental
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-emerald-500 mx-auto mb-6"></div>
-          <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
+          <div className="w-24 h-1 bg-gradient-to-r from-green-600 to-emerald-600 mx-auto mb-6"></div>
+          <p className="text-lg text-black max-w-2xl mx-auto font-bold">
             Qualidade e responsabilidade ambiental caminham juntas. Nosso compromisso com o meio ambiente é tão importante quanto a excelência dos nossos móveis.
           </p>
         </motion.div>
@@ -119,7 +129,7 @@ export function EcoPartnershipsSection() {
                 variants={itemVariants}
                 className="group relative"
               >
-                <div className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
+                <div className="relative bg-white/90 backdrop-blur-md rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
                   {/* Gradient accent bar */}
                   <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${partnership.color} rounded-t-2xl`}></div>
 
@@ -151,7 +161,7 @@ export function EcoPartnershipsSection() {
           })}
         </motion.div>
 
-        {/* Partners Carousel */}
+        {/* Partners Grid */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -159,38 +169,56 @@ export function EcoPartnershipsSection() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-20"
         >
-          <div className="text-center mb-8">
-            <h3 className="font-serif text-3xl font-bold text-neutral-900 mb-2">
+          <div className="text-center mb-12">
+            <h3 className="font-serif text-3xl font-bold text-black mb-2">
               Nossos Parceiros Certificados
             </h3>
-            <p className="text-neutral-600">
+            <p className="text-black font-bold">
               Trabalhamos com os maiores fornecedores de madeira sustentável do Brasil
             </p>
           </div>
-          <InfiniteCarousel partners={partners} speed={8} />
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-5xl mx-auto"
+          >
+            {partners.map((partner) => (
+              <motion.div
+                key={partner.name}
+                variants={itemVariants}
+                className="group relative"
+              >
+                <div className="aspect-square bg-white/90 backdrop-blur-md rounded-xl p-6 shadow-md transition-all duration-300 flex items-center justify-center">
+                  <Image
+                    src={partner.logo}
+                    alt={`Logo ${partner.name}`}
+                    width={140}
+                    height={140}
+                    className="object-contain transform group-hover:scale-[1.15] transition-transform duration-300 ease-in-out"
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </motion.div>
 
-        {/* Additional info banner */}
+        {/* Mensagem Final */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl p-8 md:p-12 text-center text-white relative overflow-hidden"
+          className="mt-16 text-center"
         >
-          {/* Background pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,.2)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-          </div>
-
-          <div className="relative z-10">
-            <h3 className="font-serif text-2xl md:text-3xl font-bold mb-4">
-              Juntos por um Futuro Sustentável
-            </h3>
-            <p className="text-lg text-green-50 max-w-3xl mx-auto">
-              Há mais de 70 anos, unimos tradição e inovação. Hoje, nosso compromisso com a sustentabilidade garante que cada móvel não apenas embeleza seu lar, mas também respeita e preserva o meio ambiente para as próximas gerações.
-            </p>
-          </div>
+          <h3 className="font-serif text-2xl md:text-3xl font-bold mb-4 text-black">
+            Juntos por um Futuro Sustentável
+          </h3>
+          <p className="text-lg text-black max-w-3xl mx-auto font-bold">
+            Há mais de 70 anos, unimos tradição e inovação. Hoje, nosso compromisso com a sustentabilidade garante que cada móvel não apenas embeleza seu lar, mas também respeita e preserva o meio ambiente para as próximas gerações.
+          </p>
         </motion.div>
       </div>
     </section>
