@@ -113,7 +113,7 @@ export function AboutSection() {
       </div>
 
       {/* Overlay escuro suave */}
-      <div className="absolute inset-0 z-0 bg-black/30"></div>
+      <div className="absolute inset-0 z-0 bg-black/60"></div>
 
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]"></div>
@@ -126,12 +126,12 @@ export function AboutSection() {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 font-['Playfair_Display']">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 font-['Playfair_Display']">
             Nossa
             <span className="text-red-600"> História</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-8">
-            Três gerações dedicadas à arte da marcenaria. Uma jornada que começou em 1954 
+          <p className="text-xl text-white/90 max-w-4xl mx-auto mb-8">
+            Três gerações dedicadas à arte da marcenaria. Uma jornada que começou em 1954
             e continua evoluindo, sempre mantendo os valores familiares e a paixão pela qualidade.
           </p>
           

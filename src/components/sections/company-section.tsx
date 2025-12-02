@@ -158,15 +158,32 @@ export function CompanySection() {
                   Mais de <strong className="text-red-600">650 projetos</strong> entregues com excelência
                 </p>
               </div>
-
-              {/* Mapa do Google */}
-              <div className="mt-6">
-                <h4 className="font-semibold text-gray-900 mb-3">Nossa Localização</h4>
-                <GoogleMapEmbed className="h-64 rounded-lg overflow-hidden shadow-md" />
-              </div>
             </div>
           </motion.div>
         </div>
+
+        {/* Seção de Localização - Mapa Full Width */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-16"
+        >
+          <div className="text-center mb-8">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <MapPin className="w-8 h-8 text-red-600" />
+              <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 font-['Playfair_Display']">
+                Nossa Localização
+              </h3>
+            </div>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Visite nosso showroom em Palhoça/SC e conheça de perto a qualidade dos nossos móveis planejados
+            </p>
+          </div>
+
+          <GoogleMapEmbed className="h-[450px] rounded-2xl overflow-hidden shadow-2xl border border-gray-200" />
+        </motion.div>
 
         {/* Showcase do Showroom */}
         <motion.div

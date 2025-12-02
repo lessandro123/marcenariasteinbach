@@ -1,8 +1,18 @@
 'use client';
 
+import * as React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Leaf, Trees, Recycle, Award } from 'lucide-react';
+import Link from 'next/link';
+import { Trees, Recycle, Award } from 'lucide-react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
 
 const partnerships = [
   {
@@ -35,22 +45,27 @@ const partners = [
   {
     name: 'Arauco',
     logo: '/images/partners/arauco.webp',
+    url: 'https://www.arauco.cl/',
   },
   {
     name: 'Duratex',
     logo: '/images/partners/duratex.jpg',
+    url: 'https://www.duratex.com.br/',
   },
   {
     name: 'Berneck',
     logo: '/images/partners/berneck.jpg',
+    url: 'https://www.berneck.com.br/',
   },
   {
     name: 'Guararapes',
     logo: '/images/partners/guararapes.jpg',
+    url: 'https://www.guararapes.com.br/',
   },
   {
     name: 'Greenplac',
     logo: '/images/partners/greenplac.webp',
+    url: 'https://www.greenplac.com.br/',
   },
 ];
 
@@ -77,6 +92,15 @@ const itemVariants = {
 };
 
 export function EcoPartnershipsSection() {
+  const autoplayPlugin = React.useRef(
+    Autoplay({
+      delay: 3000,
+      stopOnInteraction: false,
+      stopOnMouseEnter: true,
+      stopOnFocusIn: false,
+    })
+  );
+
   return (
     <section className="relative py-24 overflow-hidden">
       {/* Background Image - Full Section */}
@@ -92,7 +116,7 @@ export function EcoPartnershipsSection() {
       </div>
 
       {/* Overlay escuro suave */}
-      <div className="absolute inset-0 z-0 bg-black/30"></div>
+      <div className="absolute inset-0 z-0 bg-black/50"></div>
 
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]"></div>
@@ -105,11 +129,11 @@ export function EcoPartnershipsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-black mb-4">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">
             Compromisso Ambiental
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-green-600 to-emerald-600 mx-auto mb-6"></div>
-          <p className="text-lg text-black max-w-2xl mx-auto font-bold">
+          <p className="text-lg text-white max-w-2xl mx-auto font-bold">
             Qualidade e responsabilidade ambiental caminham juntas. Nosso compromisso com o meio ambiente é tão importante quanto a excelência dos nossos móveis.
           </p>
         </motion.div>
@@ -161,48 +185,69 @@ export function EcoPartnershipsSection() {
           })}
         </motion.div>
 
-        {/* Partners Grid */}
+        {/* Partners Carousel */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-20"
+          className="mt-12"
         >
-          <div className="text-center mb-12">
-            <h3 className="font-serif text-3xl font-bold text-black mb-2">
+          <div className="text-center mb-6">
+            <h3 className="font-serif text-2xl font-bold text-white mb-1">
               Nossos Parceiros Certificados
             </h3>
-            <p className="text-black font-bold">
+            <p className="text-sm text-white font-medium">
               Trabalhamos com os maiores fornecedores de madeira sustentável do Brasil
             </p>
           </div>
 
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-5xl mx-auto"
-          >
-            {partners.map((partner) => (
-              <motion.div
-                key={partner.name}
-                variants={itemVariants}
-                className="group relative"
-              >
-                <div className="aspect-square bg-white/90 backdrop-blur-md rounded-xl p-6 shadow-md transition-all duration-300 flex items-center justify-center">
-                  <Image
-                    src={partner.logo}
-                    alt={`Logo ${partner.name}`}
-                    width={140}
-                    height={140}
-                    className="object-contain transform group-hover:scale-[1.15] transition-transform duration-300 ease-in-out"
-                  />
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+          <div className="relative max-w-4xl mx-auto px-4">
+            <Carousel
+              opts={{
+                align: 'center',
+                loop: true,
+                slidesToScroll: 1,
+              }}
+              plugins={[autoplayPlugin.current]}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-2">
+                {partners.map((partner) => (
+                  <CarouselItem
+                    key={partner.name}
+                    className="pl-2 basis-1/2 md:basis-1/3 lg:basis-1/4"
+                  >
+                    <motion.div
+                      variants={itemVariants}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      className="group relative"
+                    >
+                      <a
+                        href={partner.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block aspect-square bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-sm hover:shadow-xl hover:shadow-green-500/20 hover:-translate-y-1 hover:scale-105 hover:border-green-600/30 transition-all duration-300 flex items-center justify-center border border-green-600/10 cursor-pointer"
+                      >
+                        <Image
+                          src={partner.logo}
+                          alt={`Logo ${partner.name}`}
+                          width={90}
+                          height={90}
+                          className="object-contain transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 ease-in-out"
+                        />
+                      </a>
+                    </motion.div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+
+              <CarouselPrevious className="left-0 -translate-x-8 bg-white/95 hover:bg-white border-green-600/30 text-green-700 shadow-md size-8" />
+              <CarouselNext className="right-0 translate-x-8 bg-white/95 hover:bg-white border-green-600/30 text-green-700 shadow-md size-8" />
+            </Carousel>
+          </div>
         </motion.div>
 
         {/* Mensagem Final */}
@@ -213,10 +258,10 @@ export function EcoPartnershipsSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-16 text-center"
         >
-          <h3 className="font-serif text-2xl md:text-3xl font-bold mb-4 text-black">
+          <h3 className="font-serif text-2xl md:text-3xl font-bold mb-4 text-white">
             Juntos por um Futuro Sustentável
           </h3>
-          <p className="text-lg text-black max-w-3xl mx-auto font-bold">
+          <p className="text-lg text-white max-w-3xl mx-auto font-bold">
             Há mais de 70 anos, unimos tradição e inovação. Hoje, nosso compromisso com a sustentabilidade garante que cada móvel não apenas embeleza seu lar, mas também respeita e preserva o meio ambiente para as próximas gerações.
           </p>
         </motion.div>
