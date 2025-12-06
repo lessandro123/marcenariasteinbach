@@ -1,3 +1,4 @@
+// Marcenaria Steinbach - Homepage
 import { Header, Footer } from '@/components/layout'
 import {
   HeroSection,
