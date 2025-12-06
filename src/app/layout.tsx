@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { MenuProvider } from "@/contexts/MenuContext";
 import { SidebarMenu } from "@/components/layout/SidebarMenu";
+import { ScrollToTopButton } from "@/components/layout/scroll-to-top-button";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -143,6 +144,7 @@ export default function RootLayout({
         />
         <MenuProvider>
           <SidebarMenu />
+          <ScrollToTopButton />
           {children}
         </MenuProvider>
       </body>

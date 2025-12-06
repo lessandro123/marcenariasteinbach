@@ -54,7 +54,7 @@ function Cube3DIcon({ className }: { className?: string }) {
 
 export function ArProjectsSection() {
   return (
-    <Section id="projetos-3d" className="bg-white" spacing="xl">
+    <Section id="projetos" className="bg-white" spacing="xl">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left Side - VR/AR Visual */}

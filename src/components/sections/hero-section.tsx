@@ -11,6 +11,7 @@ import { Section } from "@/components/ui/section"
 export function HeroSection() {
   return (
     <Section
+      id="inicio"
       className="relative min-h-[calc(100vh-56px)] sm:min-h-[calc(100vh-72px)] lg:min-h-screen flex items-center justify-center overflow-hidden"
       spacing="xl"
     >
@@ -112,27 +113,6 @@ export function HeroSection() {
 
         </div>
       </Container>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <motion.button
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          onClick={() => {
-            document.getElementById('ambientes')?.scrollIntoView({
-              behavior: 'smooth'
-            })
-          }}
-          className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center cursor-pointer hover:border-white/50 transition-colors"
-        >
-          <div className="w-1 h-3 bg-[var(--red-primary)] rounded-full mt-2"></div>
-        </motion.button>
-      </motion.div>
     </Section>
   )
 }

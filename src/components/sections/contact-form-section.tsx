@@ -75,7 +75,7 @@ Gostaria de mais informações sobre os móveis da Marcenaria Steinbach.`;
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+    <section id="contato" className="py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
       {/* Elementos decorativos de fundo */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
 

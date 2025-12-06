@@ -191,7 +191,7 @@ export function CompanySection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mt-12 mb-16 sm:mt-16"
         >
           <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
             {/* Imagem principal */}

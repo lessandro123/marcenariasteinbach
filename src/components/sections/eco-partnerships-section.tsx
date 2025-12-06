@@ -3,16 +3,8 @@
 import * as React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
 import { Trees, Recycle, Award } from 'lucide-react';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel';
-import Autoplay from 'embla-carousel-autoplay';
+import { InfiniteCarousel } from '@/components/ui/infinite-carousel';
 
 const partnerships = [
   {
@@ -92,15 +84,6 @@ const itemVariants = {
 };
 
 export function EcoPartnershipsSection() {
-  const autoplayPlugin = React.useRef(
-    Autoplay({
-      delay: 3000,
-      stopOnInteraction: false,
-      stopOnMouseEnter: true,
-      stopOnFocusIn: false,
-    })
-  );
-
   return (
     <section className="relative py-24 overflow-hidden">
       {/* Background Image - Full Section */}
@@ -202,52 +185,7 @@ export function EcoPartnershipsSection() {
             </p>
           </div>
 
-          <div className="relative max-w-4xl mx-auto px-4">
-            <Carousel
-              opts={{
-                align: 'center',
-                loop: true,
-                slidesToScroll: 1,
-              }}
-              plugins={[autoplayPlugin.current]}
-              className="w-full"
-            >
-              <CarouselContent className="-ml-2">
-                {partners.map((partner) => (
-                  <CarouselItem
-                    key={partner.name}
-                    className="pl-2 basis-1/2 md:basis-1/3 lg:basis-1/4"
-                  >
-                    <motion.div
-                      variants={itemVariants}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      className="group relative"
-                    >
-                      <a
-                        href={partner.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block aspect-square bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-sm hover:shadow-xl hover:shadow-green-500/20 hover:-translate-y-1 hover:scale-105 hover:border-green-600/30 transition-all duration-300 flex items-center justify-center border border-green-600/10 cursor-pointer"
-                      >
-                        <Image
-                          src={partner.logo}
-                          alt={`Logo ${partner.name}`}
-                          width={90}
-                          height={90}
-                          className="object-contain transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 ease-in-out"
-                        />
-                      </a>
-                    </motion.div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-
-              <CarouselPrevious className="left-0 -translate-x-8 bg-white/95 hover:bg-white border-green-600/30 text-green-700 shadow-md size-8" />
-              <CarouselNext className="right-0 translate-x-8 bg-white/95 hover:bg-white border-green-600/30 text-green-700 shadow-md size-8" />
-            </Carousel>
-          </div>
+          <InfiniteCarousel partners={partners} speed={30} />
         </motion.div>
 
         {/* Mensagem Final */}
