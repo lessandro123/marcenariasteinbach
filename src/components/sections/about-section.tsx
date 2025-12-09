@@ -56,43 +56,43 @@ function TimelineItem({ item, index }: { item: typeof timeline[0], index: number
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: index * 0.2 }}
-      className={`flex items-center gap-8 ${isEven ? 'flex-row' : 'flex-row-reverse'} group`}
+      className={`flex items-start gap-4 md:gap-8 group flex-row md:items-center ${!isEven ? 'md:flex-row-reverse' : ''}`}
     >
+      {/* Timeline Node */}
+      <div className="flex-shrink-0 relative">
+        <div className={`w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 ${
+          item.highlight
+            ? 'bg-gradient-to-br from-[var(--red-primary)] to-red-700 text-white'
+            : 'bg-white border-2 md:border-4 border-red-600 text-red-600'
+        }`}>
+          <Icon className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10" />
+        </div>
+
+        {/* Timeline Line */}
+        {index < timeline.length - 1 && (
+          <div className="absolute top-12 md:top-16 left-1/2 transform -translate-x-1/2 w-0.5 md:w-1 h-16 md:h-24 bg-gradient-to-b from-gray-300 to-transparent"></div>
+        )}
+      </div>
+
       {/* Content */}
-      <div className={`flex-1 ${isEven ? 'text-right' : 'text-left'}`}>
-        <div className={`inline-block p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 max-w-md ${
+      <div className={`flex-1 text-left ${isEven ? 'md:text-right' : 'md:text-left'}`}>
+        <div className={`inline-block p-4 md:p-6 lg:p-8 bg-white rounded-xl md:rounded-2xl lg:rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 w-full md:max-w-md ${
           item.highlight ? 'ring-2 ring-[var(--red-primary)]/20 bg-gradient-to-br from-white to-[var(--red-primary)]/5' : ''
         }`}>
-          <div className={`text-2xl font-bold ${item.highlight ? 'text-[var(--red-primary)]' : 'text-red-600'} mb-2`}>
+          <div className={`text-xl md:text-2xl font-bold ${item.highlight ? 'text-[var(--red-primary)]' : 'text-red-600'} mb-2`}>
             {item.year}
           </div>
-          <h3 className="text-xl font-semibold text-gray-900 mb-3">
+          <h3 className="text-base md:text-xl lg:text-2xl font-semibold text-gray-900 mb-2 md:mb-3 lg:mb-4">
             {item.title}
           </h3>
-          <p className="text-gray-600 leading-relaxed">
+          <p className="text-sm md:text-base text-gray-600 leading-relaxed">
             {item.description}
           </p>
         </div>
       </div>
 
-      {/* Timeline Node */}
-      <div className="flex-shrink-0 relative">
-        <div className={`w-16 h-16 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 ${
-          item.highlight 
-            ? 'bg-gradient-to-br from-[var(--red-primary)] to-red-700 text-white' 
-            : 'bg-white border-4 border-red-600 text-red-600'
-        }`}>
-          <Icon className="w-8 h-8" />
-        </div>
-        
-        {/* Timeline Line */}
-        {index < timeline.length - 1 && (
-          <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-1 h-24 bg-gradient-to-b from-gray-300 to-transparent"></div>
-        )}
-      </div>
-
-      {/* Spacer for opposite side */}
-      <div className="flex-1"></div>
+      {/* Spacer for opposite side - only on desktop */}
+      <div className="hidden md:block flex-1"></div>
     </motion.div>
   )
 }
@@ -100,11 +100,23 @@ function TimelineItem({ item, index }: { item: typeof timeline[0], index: number
 export function AboutSection() {
   return (
     <Section id="sobre" className="relative overflow-hidden" spacing="xl">
-      {/* Background Image com blur */}
-      <div className="absolute inset-0 z-0">
+      {/* Background Image - Desktop */}
+      <div className="hidden md:block absolute inset-0 z-0">
         <Image
           src="/images/ferramentas-marcenaria.jpg"
           alt="Ferramentas de marcenaria artesanal - Tradição Steinbach"
+          fill
+          className="object-cover object-center blur-sm"
+          sizes="100vw"
+          priority={false}
+        />
+      </div>
+
+      {/* Background Image - Mobile */}
+      <div className="block md:hidden absolute inset-0 z-0">
+        <Image
+          src="/images/ferramentas-detalhe-mobile.jpg"
+          alt="Detalhes de ferramentas de marcenaria artesanal"
           fill
           className="object-cover object-center blur-sm"
           sizes="100vw"
@@ -124,29 +136,29 @@ export function AboutSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-24 lg:mb-32"
         >
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 font-['Playfair_Display']">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 md:mb-6 lg:mb-8 font-['Playfair_Display']">
             Nossa
             <span className="text-red-600"> História</span>
           </h2>
-          <p className="text-xl text-white/90 max-w-4xl mx-auto mb-8">
+          <p className="text-base md:text-xl lg:text-2xl text-white/90 max-w-4xl mx-auto mb-6 md:mb-8 lg:mb-12 px-4">
             Três gerações dedicadas à arte da marcenaria. Uma jornada que começou em 1954
             e continua evoluindo, sempre mantendo os valores familiares e a paixão pela qualidade.
           </p>
-          
+
           {/* Family Heritage Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="inline-flex items-center space-x-3 bg-gradient-to-r from-[var(--red-primary)] to-red-700 text-white rounded-full px-8 py-4 shadow-lg"
+            className="inline-flex items-center space-x-2 md:space-x-3 lg:space-x-4 bg-gradient-to-r from-[var(--red-primary)] to-red-700 text-white rounded-full px-6 py-3 md:px-8 md:py-4 lg:px-10 lg:py-5 shadow-lg"
           >
-            <Heart className="w-6 h-6" />
+            <Heart className="w-5 h-5 md:w-6 md:h-6" />
             <div className="text-left">
-              <div className="font-bold text-lg">Tradição Familiar</div>
-              <div className="text-sm opacity-90">3 Gerações • 70 Anos</div>
+              <div className="font-bold text-base md:text-lg">Tradição Familiar</div>
+              <div className="text-xs md:text-sm opacity-90">3 Gerações • 70 Anos</div>
             </div>
           </motion.div>
         </motion.div>
@@ -157,14 +169,14 @@ export function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto mb-16"
+          className="max-w-4xl mx-auto mb-12 md:mb-20 lg:mb-28"
         >
           <div className="relative bg-gradient-to-br from-gray-50 via-white to-red-50/30 rounded-3xl shadow-2xl border border-gray-200 overflow-hidden">
             {/* Decorative corner elements */}
             <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-[var(--red-primary)]/10 to-transparent rounded-br-full"></div>
             <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-[var(--gold-primary)]/10 to-transparent rounded-tl-full"></div>
 
-            <div className="relative p-8 sm:p-12">
+            <div className="relative p-6 sm:p-8 md:p-12 lg:p-16">
               {/* Título da seção */}
               <div className="text-center mb-8">
                 <motion.div
@@ -174,10 +186,10 @@ export function AboutSection() {
                   transition={{ delay: 0.3 }}
                   className="inline-block"
                 >
-                  <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 font-['Playfair_Display'] mb-2">
+                  <h3 className="text-xl md:text-2xl lg:text-4xl font-bold text-gray-900 font-['Playfair_Display'] mb-2 lg:mb-4">
                     Onde Tudo Começou
                   </h3>
-                  <div className="h-1 w-24 bg-gradient-to-r from-[var(--red-primary)] to-[var(--gold-primary)] mx-auto rounded-full"></div>
+                  <div className="h-1 w-24 lg:w-32 bg-gradient-to-r from-[var(--red-primary)] to-[var(--gold-primary)] mx-auto rounded-full"></div>
                 </motion.div>
               </div>
 
@@ -193,7 +205,7 @@ export function AboutSection() {
                 <div className="absolute inset-0 bg-gradient-to-br from-[var(--red-primary)] to-[var(--gold-primary)] rounded-2xl transform rotate-1 group-hover:rotate-0 transition-transform duration-300"></div>
 
                 {/* Container da imagem */}
-                <div className="relative bg-white p-4 sm:p-6 rounded-2xl shadow-xl">
+                <div className="relative bg-white p-3 sm:p-4 md:p-6 lg:p-8 rounded-2xl shadow-xl">
                   <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
                     {/* Efeito sépia/vintage overlay */}
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20 z-10 mix-blend-multiply"></div>
@@ -210,12 +222,12 @@ export function AboutSection() {
                   </div>
 
                   {/* Legenda dentro do frame */}
-                  <div className="mt-4 text-center">
-                    <p className="text-sm sm:text-base font-semibold text-gray-900 mb-1">
+                  <div className="mt-3 md:mt-4 lg:mt-6 text-center">
+                    <p className="text-xs md:text-sm lg:text-base font-semibold text-gray-900 mb-1">
                       Germano José Steinbach e Maria Valmira Assing Steinbach
                     </p>
-                    <p className="text-xs sm:text-sm text-gray-600 flex items-center justify-center gap-2">
-                      <Heart className="w-4 h-4 text-red-600" />
+                    <p className="text-xs md:text-sm text-gray-600 flex items-center justify-center gap-2">
+                      <Heart className="w-3 h-3 md:w-4 md:h-4 text-red-600" />
                       Fundadores • 1954
                     </p>
                   </div>
@@ -230,7 +242,7 @@ export function AboutSection() {
                 transition={{ delay: 0.7 }}
                 className="mt-8 text-center"
               >
-                <p className="text-gray-700 italic text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+                <p className="text-gray-700 italic text-xs md:text-sm lg:text-lg max-w-2xl mx-auto leading-relaxed">
                   &ldquo;Com dedicação e amor pelo ofício, iniciaram uma jornada que atravessaria gerações,
                   construindo não apenas móveis, mas histórias de família.&rdquo;
                 </p>
@@ -240,87 +252,105 @@ export function AboutSection() {
         </motion.div>
 
         {/* Timeline */}
-        <div className="space-y-16 mb-20">
+        <div className="space-y-8 md:space-y-16 lg:space-y-20 mb-12 md:mb-20 lg:mb-28">
           {timeline.map((item, index) => (
             <TimelineItem key={item.year} item={item} index={index} />
           ))}
         </div>
 
-        {/* Values Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="bg-white rounded-3xl shadow-xl p-8 sm:p-12 border border-gray-100"
-        >
-          <div className="text-center mb-12">
-            <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 font-['Playfair_Display']">
-              Nossos Valores
-            </h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Princípios que guiam cada projeto e nos conectam às nossas raízes
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Tradição',
-                description: 'Técnicas artesanais transmitidas através de gerações',
-                icon: '🏛️'
-              },
-              {
-                title: 'Qualidade',
-                description: 'Materiais premium e acabamento impecável',
-                icon: '⭐'
-              },
-              {
-                title: 'Inovação',
-                description: 'Tecnologia moderna aliada ao saber tradicional',
-                icon: '🚀'
-              }
-            ].map((value, index) => (
-              <motion.div
-                key={value.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 + index * 0.1 }}
-                className="text-center space-y-4 group hover:scale-105 transition-transform duration-300"
-              >
-                <div className="text-4xl mb-4">{value.icon}</div>
-                <h4 className="text-xl font-bold text-gray-900">{value.title}</h4>
-                <p className="text-gray-600">{value.description}</p>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* CTA */}
+        {/* Values Section - Header */}
+        <div className="text-center mb-12 md:mb-16 lg:mb-20">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.6 }}
-            className="text-center mt-12 pt-8 border-t border-gray-100"
+            transition={{ duration: 0.6 }}
           >
-            <p className="text-lg text-gray-700 mb-6">
-              Conheça nosso showroom e viva essa experiência única
+            <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 font-['Playfair_Display']">
+              Nossos Valores
+            </h3>
+            <div className="w-24 h-1 bg-gradient-to-r from-red-primary to-gold-primary mx-auto rounded-full mb-6" />
+            <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto px-4">
+              Princípios que guiam cada projeto e nos conectam às nossas raízes
             </p>
-            <a
-              href="https://wa.me/5548996055656?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20visita."
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                variant="gold"
-                size="lg"
-                className="group shadow-xl hover:scale-105 transition-all duration-300"
-              >
-                Agendar Visita
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </a>
           </motion.div>
+        </div>
+
+        {/* Values Cards - Independentes e Flutuantes */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16 lg:mb-20">
+          {[
+            {
+              title: 'Tradição',
+              description: 'Técnicas artesanais transmitidas através de gerações',
+              icon: '🏛️'
+            },
+            {
+              title: 'Qualidade',
+              description: 'Materiais premium e acabamento impecável',
+              icon: '⭐'
+            },
+            {
+              title: 'Inovação',
+              description: 'Tecnologia moderna aliada ao saber tradicional',
+              icon: '🚀'
+            }
+          ].map((value, index) => (
+            <motion.div
+              key={value.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 + index * 0.15, duration: 0.6 }}
+              className="group"
+            >
+              <div className="bg-white rounded-2xl md:rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 p-8 md:p-10 text-center h-full flex flex-col items-center justify-center hover:scale-105 border border-gray-100">
+                {/* Ícone */}
+                <div className="text-5xl md:text-6xl mb-6 md:mb-8 transform group-hover:scale-110 transition-transform duration-300">
+                  {value.icon}
+                </div>
+
+                {/* Título */}
+                <h4 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-5">
+                  {value.title}
+                </h4>
+
+                {/* Divisor Decorativo */}
+                <div className="w-16 h-1 bg-gradient-to-r from-red-primary to-gold-primary rounded-full mb-4 md:mb-5" />
+
+                {/* Descrição */}
+                <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+                  {value.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* CTA Section - Mantida Separada */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.8, duration: 0.6 }}
+          className="bg-white/95 backdrop-blur-sm rounded-2xl md:rounded-3xl shadow-lg p-8 md:p-10 border border-white/20 text-center max-w-3xl mx-auto"
+        >
+          <p className="text-base md:text-lg text-gray-700 mb-6 md:mb-8 px-4 leading-relaxed">
+            Conheça nosso showroom e viva essa experiência única
+          </p>
+          <a
+            href="https://wa.me/5548996055656?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20visita."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button
+              variant="gold"
+              size="lg"
+              className="group shadow-xl hover:scale-105 transition-all duration-300"
+            >
+              Agendar Visita
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </a>
         </motion.div>
       </Container>
     </Section>

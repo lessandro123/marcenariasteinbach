@@ -384,7 +384,7 @@ export function CompanySection() {
               <Button
                 variant="default"
                 size="lg"
-                className="group shadow-xl hover:scale-105 transition-all duration-300"
+                className="group shadow-xl hover:scale-105 transition-all duration-300 inline-flex items-center justify-center"
               >
                 Solicitar Orçamento sem Compromisso
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -398,7 +398,7 @@ export function CompanySection() {
               <Button
                 variant="outline"
                 size="lg"
-                className="group shadow-md hover:shadow-lg transition-all duration-300"
+                className="group shadow-md hover:shadow-lg transition-all duration-300 inline-flex items-center justify-center"
               >
                 Ver Nossos Projetos
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
