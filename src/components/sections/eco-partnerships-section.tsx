@@ -253,7 +253,7 @@ export function EcoPartnershipsSection() {
 
           <InfiniteCarousel
             partners={partners}
-            speed={0.15}
+            speed={0.6}
           />
         </motion.div>
 
