@@ -48,6 +48,7 @@ export const InfiniteCarousel = memo(function InfiniteCarousel({
       <div
         className="flex gap-6 items-center animate-infinite-scroll"
         style={{
+          '--item-count': partners.length,
           animationDuration: `${speed * 20}s`,
           willChange: 'transform',
         } as React.CSSProperties}

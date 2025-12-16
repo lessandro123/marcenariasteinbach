@@ -209,17 +209,37 @@ body {
 }
 
 /* Animação de carrossel infinito */
-@keyframes infinite-scroll {
+/* Versão mobile: 140px por item + 24px de gap */
+@keyframes infinite-scroll-mobile {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-100% / 20));
+    /* Fórmula: -((largura_item * quantidade) + (gap * (quantidade - 1))) */
+    transform: translateX(calc(-1 * ((140px * var(--item-count, 5)) + (24px * (var(--item-count, 5) - 1)))));
+  }
+}
+
+/* Versão desktop: 160px por item + 24px de gap */
+@keyframes infinite-scroll-desktop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Fórmula: -((largura_item * quantidade) + (gap * (quantidade - 1))) */
+    transform: translateX(calc(-1 * ((160px * var(--item-count, 5)) + (24px * (var(--item-count, 5) - 1)))));
   }
 }
 
 .animate-infinite-scroll {
-  animation: infinite-scroll linear infinite;
+  animation: infinite-scroll-mobile linear infinite;
+}
+
+/* Desktop (sm breakpoint = 640px) */
+@media (min-width: 640px) {
+  .animate-infinite-scroll {
+    animation: infinite-scroll-desktop linear infinite;
+  }
 }
 
 /* Section styling */

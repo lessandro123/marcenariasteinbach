@@ -10,7 +10,9 @@
       "mcp__shadcn__get_add_command_for_items",
       "Bash(npx:*)",
       "Bash(npm run build:*)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(grep:*)",
+      "Bash(cat:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
