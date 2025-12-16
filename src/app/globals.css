@@ -208,6 +208,20 @@ body {
   }
 }
 
+/* Animação de carrossel infinito */
+@keyframes infinite-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% / 20));
+  }
+}
+
+.animate-infinite-scroll {
+  animation: infinite-scroll linear infinite;
+}
+
 /* Section styling */
 .section-padding {
   padding: var(--section-padding);

@@ -1,9 +1,9 @@
 'use client';
 
-import * as React from 'react';
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { Trees, Recycle, Award } from 'lucide-react';
+import { Trees, Recycle, Award, ChevronDown } from 'lucide-react';
 import { InfiniteCarousel } from '@/components/ui/infinite-carousel';
 
 const partnerships = [
@@ -84,13 +84,15 @@ const itemVariants = {
 };
 
 export function EcoPartnershipsSection() {
+  const [expandedPartnership, setExpandedPartnership] = useState<number | null>(null);
+
   return (
     <section className="relative py-24 overflow-hidden">
       {/* Background Image - Full Section */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/floresta-sustentabilidade.png"
-          alt="Floresta certificada FSC - Sustentabilidade"
+          src="/images/compromisso-ambiental-bg.jpg"
+          alt="Compromisso ambiental - Sustentabilidade"
           fill
           className="object-cover object-center blur-sm"
           sizes="100vw"
@@ -121,12 +123,76 @@ export function EcoPartnershipsSection() {
           </p>
         </motion.div>
 
+        {/* Mobile: Accordion com Ícones */}
+        <div className="md:hidden space-y-4">
+          {partnerships.map((partnership, index) => {
+            const Icon = partnership.icon;
+            const isExpanded = expandedPartnership === index;
+
+            return (
+              <motion.div
+                key={partnership.title}
+                className="bg-white/90 backdrop-blur-md rounded-2xl shadow-xl overflow-hidden"
+                initial={false}
+              >
+                {/* Botão do Ícone */}
+                <motion.button
+                  onClick={() => setExpandedPartnership(isExpanded ? null : index)}
+                  className="w-full p-6 flex flex-col items-center gap-3"
+                  whileTap={{ scale: 0.98 }}
+                >
+                  {/* Ícone com gradiente */}
+                  <div className={`w-20 h-20 bg-gradient-to-br ${partnership.color} rounded-full shadow-lg flex items-center justify-center`}>
+                    <Icon className="w-10 h-10 text-white" strokeWidth={1.5} />
+                  </div>
+
+                  {/* Título + Chevron */}
+                  <div className="flex items-center gap-2">
+                    <span className="font-serif text-xl font-bold text-neutral-900">
+                      {partnership.title}
+                    </span>
+                    <motion.div
+                      animate={{ rotate: isExpanded ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <ChevronDown className="w-5 h-5 text-neutral-600" />
+                    </motion.div>
+                  </div>
+                </motion.button>
+
+                {/* Conteúdo Expansível */}
+                <AnimatePresence initial={false}>
+                  {isExpanded && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: 'easeInOut' }}
+                    >
+                      <div className="px-6 pb-6">
+                        <div className="w-full h-px bg-gradient-to-r from-transparent via-neutral-200 to-transparent mb-4" />
+                        <p className="text-sm font-medium text-green-600 mb-3">
+                          {partnership.subtitle}
+                        </p>
+                        <p className="text-sm text-neutral-600 leading-relaxed">
+                          {partnership.description}
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Desktop: Grid 3 colunas */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10"
+          className="hidden md:grid md:grid-cols-3 gap-4 md:gap-8 lg:gap-10"
         >
           {partnerships.map((partnership) => {
             const Icon = partnership.icon;
@@ -136,26 +202,26 @@ export function EcoPartnershipsSection() {
                 variants={itemVariants}
                 className="group relative"
               >
-                <div className="relative bg-white/90 backdrop-blur-md rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
+                <div className="relative bg-white/90 backdrop-blur-md rounded-2xl p-4 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
                   {/* Gradient accent bar */}
                   <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${partnership.color} rounded-t-2xl`}></div>
 
                   {/* Icon with gradient background */}
-                  <div className="relative mb-6">
-                    <div className={`w-16 h-16 bg-gradient-to-r ${partnership.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                      <Icon className="w-8 h-8 text-white" strokeWidth={1.5} />
+                  <div className="relative mb-3 sm:mb-6">
+                    <div className={`w-10 h-10 sm:w-16 sm:h-16 bg-gradient-to-r ${partnership.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                      <Icon className="w-5 h-5 sm:w-8 sm:h-8 text-white" strokeWidth={1.5} />
                     </div>
                   </div>
 
                   {/* Content */}
                   <div className="flex-1">
-                    <h3 className="font-serif text-2xl font-bold text-neutral-900 mb-1">
+                    <h3 className="font-serif text-lg sm:text-2xl font-bold text-neutral-900 mb-0.5 sm:mb-1">
                       {partnership.title}
                     </h3>
-                    <p className="text-sm font-medium text-green-600 mb-4">
+                    <p className="text-sm font-medium text-green-600 mb-3 sm:mb-4">
                       {partnership.subtitle}
                     </p>
-                    <p className="text-neutral-600 leading-relaxed">
+                    <p className="text-xs sm:text-base text-neutral-600 leading-snug sm:leading-relaxed">
                       {partnership.description}
                     </p>
                   </div>
@@ -185,7 +251,10 @@ export function EcoPartnershipsSection() {
             </p>
           </div>
 
-          <InfiniteCarousel partners={partners} speed={30} />
+          <InfiniteCarousel
+            partners={partners}
+            speed={0.15}
+          />
         </motion.div>
 
         {/* Mensagem Final */}
