@@ -70,18 +70,50 @@ export function ProjetoDetalhesSection({ projeto }: ProjetoDetalhesProps) {
       {/* Hero Section com Imagem de Fundo + Conteúdo */}
       <section className="relative min-h-[calc(100vh-56px)] sm:min-h-[calc(100vh-64px)] lg:min-h-screen overflow-hidden flex items-center justify-center py-32">
         {/* Imagem de Fundo */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src={projeto.imagemPrincipal}
-            alt={projeto.title}
-            fill
-            className="object-cover"
-            priority
-            quality={90}
-          />
-          {/* Overlay escuro para profundidade e legibilidade */}
-          <div className="absolute inset-0 bg-black/50" />
-        </div>
+        {(projeto.id === 'cozinha-premium' || projeto.id === 'dormitorio-sob-medida' || projeto.id === 'sala-estar' || projeto.id === 'home-office' || projeto.id === 'banheiro-premium' || projeto.id === 'lavanderia-planejada' || projeto.id === 'varanda-gourmet' || projeto.id === 'adega-climatizada') ? (
+          <>
+            {/* Background Image - Mobile */}
+            <div className="absolute inset-0 z-0 sm:hidden">
+              <Image
+                src={`/images/${projeto.id}-hero-mobile.png`}
+                alt={projeto.title}
+                fill
+                className="object-cover"
+                priority
+                quality={90}
+              />
+              {/* Overlay escuro para profundidade e legibilidade */}
+              <div className="absolute inset-0 bg-black/50" />
+            </div>
+
+            {/* Background Image - Desktop */}
+            <div className="absolute inset-0 z-0 hidden sm:block">
+              <Image
+                src={projeto.imagemPrincipal}
+                alt={projeto.title}
+                fill
+                className="object-cover"
+                priority
+                quality={90}
+              />
+              {/* Overlay escuro para profundidade e legibilidade */}
+              <div className="absolute inset-0 bg-black/50" />
+            </div>
+          </>
+        ) : (
+          <div className="absolute inset-0 z-0">
+            <Image
+              src={projeto.imagemPrincipal}
+              alt={projeto.title}
+              fill
+              className="object-cover"
+              priority
+              quality={90}
+            />
+            {/* Overlay escuro para profundidade e legibilidade */}
+            <div className="absolute inset-0 bg-black/50" />
+          </div>
+        )}
 
         {/* Conteúdo Centralizado */}
         <div className="relative z-10">

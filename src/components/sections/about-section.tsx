@@ -3,7 +3,7 @@
 import * as React from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { Calendar, Users, Hammer, Award, ArrowRight, Heart } from "lucide-react"
+import { Calendar, Users, Hammer, Award, ArrowRight, Heart, Building2, Lightbulb } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Container } from "@/components/ui/container"
 import { Section } from "@/components/ui/section"
@@ -282,48 +282,51 @@ export function AboutSection() {
             {
               title: 'Tradição',
               description: 'Técnicas artesanais transmitidas através de gerações',
-              icon: '🏛️'
+              icon: Building2
             },
             {
               title: 'Qualidade',
               description: 'Materiais premium e acabamento impecável',
-              icon: '⭐'
+              icon: Award
             },
             {
               title: 'Inovação',
               description: 'Tecnologia moderna aliada ao saber tradicional',
-              icon: '🚀'
+              icon: Lightbulb
             }
-          ].map((value, index) => (
-            <motion.div
-              key={value.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 + index * 0.15, duration: 0.6 }}
-              className="group"
-            >
-              <div className="bg-white rounded-2xl md:rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 p-8 md:p-10 text-center h-full flex flex-col items-center justify-center hover:scale-105 border border-gray-100">
-                {/* Ícone */}
-                <div className="text-5xl md:text-6xl mb-6 md:mb-8 transform group-hover:scale-110 transition-transform duration-300">
-                  {value.icon}
+          ].map((value, index) => {
+            const Icon = value.icon
+            return (
+              <motion.div
+                key={value.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 + index * 0.15, duration: 0.6 }}
+                className="group"
+              >
+                <div className="bg-white rounded-2xl md:rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 p-8 md:p-10 text-center h-full flex flex-col items-center justify-center hover:scale-105 border border-gray-100">
+                  {/* Ícone */}
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-full shadow-lg flex items-center justify-center mb-6 md:mb-8 transform group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="w-8 h-8 md:w-10 md:h-10 text-white" strokeWidth={1.5} />
+                  </div>
+
+                  {/* Título */}
+                  <h4 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-5">
+                    {value.title}
+                  </h4>
+
+                  {/* Divisor Decorativo */}
+                  <div className="w-16 h-1 bg-gradient-to-r from-red-primary to-gold-primary rounded-full mb-4 md:mb-5" />
+
+                  {/* Descrição */}
+                  <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+                    {value.description}
+                  </p>
                 </div>
-
-                {/* Título */}
-                <h4 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-5">
-                  {value.title}
-                </h4>
-
-                {/* Divisor Decorativo */}
-                <div className="w-16 h-1 bg-gradient-to-r from-red-primary to-gold-primary rounded-full mb-4 md:mb-5" />
-
-                {/* Descrição */}
-                <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-                  {value.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            )
+          })}
         </div>
 
         {/* CTA Section - Mantida Separada */}
